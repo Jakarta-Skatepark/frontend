@@ -1,0 +1,9 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap');
+
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+font-family: 'Andika New Basic', sans-serif; */
