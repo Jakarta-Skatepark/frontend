@@ -6,26 +6,15 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       base: {
-        1: '#FAFAFB',
-        2: ' #F5F6F7',
-        3: '#EBECEF',
-        4: '#C3C7CE',
-        5: '#9AA1AD',
-        6: '#727C8C',
-        7: '#4A576B',
-        8: '#21314A',
-        9: '#031531',
+        1: '#D8D2CA',
+        2: ' #F0EDE6',
+        3: '#FFFFFF',
+        4: '#2C2C2C',
       },
       primary: {
-        1: '#FDEBD9',
-        2: '#FBD3B5',
-        3: '#F5B28E',
-        4: '#EC9270',
-        5: '#E06343',
-        6: '#C04330',
-        7: '#A12821',
-        8: '#811517',
-        9: '#6B0C15',
+        1: '#2C2C2C',
+        2: '#F0EDE6',
+        3: '#735372',
       },
     },
 
@@ -142,7 +131,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Andika New Basic', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
       },
       lineHeight: {
         'leading-none': '0',
