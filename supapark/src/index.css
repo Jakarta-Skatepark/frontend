@@ -1,9 +1,89 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap'); */
 
+/* Custom fonts Plus Jakarta Sans */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('./fonts/static/PlusJakartaSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('./fonts/static/PlusJakartaSans-Bold.ttf');
+  font-weight: bold;
+  font-feature-settings: 'ss03' on, 'ss01' on, 'ss02' on;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('./fonts/static/PlusJakartaSans-Medium.ttf');
+  font-weight: medium;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('./fonts/static/PlusJakartaSans-Light.ttf');
+  font-weight: lighter;
+}
 /* ./src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 /* 
 font-family: 'Andika New Basic', sans-serif; */
+
+body {
+  background-color: #d8d2ca;
+}
+
+/* Base Styles */
+h1 {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 40px;
+  font-feature-settings: 'ss03' on, 'ss01' on, 'ss02' on;
+  color: #2c2c2c;
+}
+
+h3 {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  font-feature-settings: 'salt' on, 'ss01' on, 'ss02' on, 'ss03' on;
+  color: #2c2c2c;
+}
+
+h2 {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 64px;
+  font-feature-settings: 'ss03' on;
+  color: #735372;
+}
+
+h2 span {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  font-feature-settings: 'ss03' on;
+  color: #735372;
+}
+
+.card {
+  width: 908px;
+  height: 260px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: sticky;
+  width: 284px;
+}

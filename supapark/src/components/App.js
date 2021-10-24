@@ -1,10 +1,22 @@
 import React from 'react';
+import Card from './Card';
+import Sidebar from './Sidebar';
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello React!</h1>
-      <h1 className='font-bold'>Welcome To Jakarta Skatepark</h1>
+    <div className='flex flex-grow'>
+      <Sidebar />
+      <div className='flex flex-col gap-7'>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 };
