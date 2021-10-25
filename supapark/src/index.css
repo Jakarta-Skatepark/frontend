@@ -74,6 +74,23 @@ h2 span {
   color: #735372;
 }
 
+/* Styles */
+
+input {
+  padding: 12px 24px;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  width: 380px;
+}
+
+input::placeholder {
+  color: #2c2c2c;
+}
+
+input:focus {
+  outline: none;
+}
+
 .card {
   width: 908px;
   height: 260px;
@@ -85,5 +102,10 @@ h2 span {
   top: 0;
   left: 0;
   position: sticky;
-  width: 284px;
+  width: 20%;
+}
+
+.content {
+  width: 80%;
+  align-items: center;
 }
