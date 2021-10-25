@@ -1,40 +1,63 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
   return (
     <div className='bg-base-4 sidebar px-15 pt-20'>
-      <div className='text-8 text-primary-2 '>LOGO</div>
+      <div className='text-8 text-primary-2 font-bold'>
+        Jakarta <br /> Skatepark
+      </div>
       <nav>
         <ul>
           <li className='mt-7'>
-            <a className='text-8 text-primary-2 hover:text-base-1' href='#'>
+            <Link to='/' className='text-8 text-primary-2 hover:text-base-1'>
               Home
-            </a>
+            </Link>
           </li>
           <li className='mt-7'>
-            <a className='text-8 text-primary-2 hover:text-base-1' href='#'>
+            <Link
+              to='/maps'
+              className='text-8 text-primary-2 hover:text-base-1'
+              href='#'
+            >
               Maps
-            </a>
+            </Link>
           </li>
           <li className='mt-7'>
-            <a className='text-8 text-primary-2 hover:text-base-1' href='#'>
+            <Link
+              to='/obstacle'
+              className='text-8 text-primary-2 hover:text-base-1'
+              href='#'
+            >
               Obstacles
-            </a>
+            </Link>
           </li>
           <li className='mt-7'>
-            <a className='text-8 text-primary-2 hover:text-base-1' href='#'>
+            <Link
+              to='/about'
+              className='text-8 text-primary-2 hover:text-base-1'
+              href='#'
+            >
               Tentang Aplikasi
-            </a>
+            </Link>
           </li>
           <li className='mt-7'>
-            <a className='text-8 text-primary-2 hover:text-base-1' href='#'>
+            <Link
+              to='/input'
+              className='text-8 text-primary-2 hover:text-base-1'
+              href='#'
+            >
               Input Data
-            </a>
+            </Link>
           </li>
           <li className='mt-7'>
-            <a className='text-8 text-primary-2 hover:text-base-1' href='#'>
+            <Link
+              to='/'
+              className='text-8 text-primary-2 hover:text-base-1'
+              href='#'
+            >
               Log Out
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
