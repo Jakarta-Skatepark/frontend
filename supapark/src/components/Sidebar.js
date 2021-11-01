@@ -25,7 +25,7 @@ export default function Sidebar() {
           </li>
           <li className='mt-7'>
             <Link
-              to='/obstacle'
+              to='/obstacles'
               className='text-8 text-primary-2 hover:text-base-1'
               href='#'
             >
