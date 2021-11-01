@@ -11,6 +11,7 @@ import Obstacle from './pages/Obstacle';
 import InputData from './pages/InputData';
 import About from './pages/About';
 import DetailPage from './pages/DetailPage';
+import ObstacleDetail from './pages/ObstacleDetail';
 
 const App = () => {
   const [userLatitude, setUserLatitude] = useState(0);
@@ -30,7 +31,7 @@ const App = () => {
   console.log(errors);
   return (
     <Router>
-      <div className='flex '>
+      <div className='flex'>
         <Sidebar />
         <Switch>
           <Route exact path='/'>
@@ -46,8 +47,13 @@ const App = () => {
           <Route path='/maps' className='content pb-20 px-15'>
             <Map />
           </Route>
-          <Route path='/obstacle' className='content pb-20 px-15'>
+          <Route path='/obstacles' className='content pb-20 '>
             <Obstacle />
+          </Route>
+          <Route exact path='/obstacle/detail/:id'>
+            <div className='content pb-20 px-15'>
+              <ObstacleDetail />
+            </div>
           </Route>
           <Route path='/about' className='content pb-20 px-15'>
             <About />

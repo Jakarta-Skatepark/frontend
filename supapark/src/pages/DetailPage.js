@@ -18,27 +18,42 @@ export default function DetailPage() {
   if (error) return <h1>{error.message}</h1>;
 
   return (
-    <div>
-      <Link to='/'>Kembali</Link>
-      <h1>{data.skatepark.park_name}</h1>
-      <h4>
+    <div className='mt-20'>
+      <Link to='/' className='text-primary-3'>
+        Kembali
+      </Link>
+      <h1 className='mt-16'>{data.skatepark.park_name}</h1>
+      <h4 className='mt-7 text-11'>
         {data.skatepark.park_type} || {data.skatepark.park_area}
       </h4>
-      <img src={data.skatepark.park_image} alt={data.skatepark.park_name} />
-      <p>{data.skatepark.park_description}</p>
-      <h1>Rintangan</h1>
+      <div className='image-container'>
+        <img
+          className='mt-15'
+          src={data.skatepark.park_image}
+          alt={data.skatepark.park_name}
+        />
+      </div>
+      <p className='mt-15 mb-20 text-11'>{data.skatepark.park_description}</p>
+      <h1 className='mb-15'>Rintangan</h1>
       {data.skatepark.park_obstacles.map((obstacle) => {
         return (
-          <ul>
+          <ul className='flex gap-2'>
             <li key={obstacle.id}>
-              <p>{obstacle.obstacle_name}</p>
+              <Link className='text-11' to='/obstacle'>
+                {obstacle.obstacle_name}
+              </Link>
             </li>
           </ul>
         );
       })}
-      <h1>Petunjuk Arah</h1>
-      <h5>Latitude: {data.skatepark.park_geometry.latitude}</h5>
-      <h5>Longitude: {data.skatepark.park_geometry.longitude}</h5>
+      <h1 className='my-15'>Petunjuk Arah</h1>
+      <p className='text-11'>
+        Latitude: {data.skatepark.park_geometry.latitude}
+      </p>
+      <p className='text-11'>
+        Longitude: {data.skatepark.park_geometry.longitude}
+      </p>
+      <p className='text-11'>{data.skatepark.park_address}</p>
     </div>
   );
 }
