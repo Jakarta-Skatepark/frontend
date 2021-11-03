@@ -45,7 +45,7 @@ const App = () => {
             </div>
           </Route>
           <Route path='/maps' className='content pb-20 px-15'>
-            <Map />
+            <Map userLatitude={userLatitude} userLongitude={userLongitude} />
           </Route>
           <Route path='/obstacles' className='content pb-20 '>
             <Obstacle />
