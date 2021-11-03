@@ -37,7 +37,7 @@ export default function DetailPage() {
       <h1 className='mb-15'>Rintangan</h1>
       {data.skatepark.park_obstacles.map((obstacle) => {
         return (
-          <ul className='flex gap-2'>
+          <ul key={obstacle.id} className='flex gap-2'>
             <li key={obstacle.id}>
               <Link className='text-11' to='/obstacle'>
                 {obstacle.obstacle_name}
