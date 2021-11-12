@@ -16,6 +16,7 @@ export default function DetailPage() {
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>{error.message}</h1>;
+  console.log(data);
 
   return (
     <div className='mt-20'>
@@ -39,7 +40,7 @@ export default function DetailPage() {
         return (
           <ul key={obstacle.id} className='flex gap-2'>
             <li key={obstacle.id}>
-              <Link className='text-11' to='/obstacle'>
+              <Link className='text-11' to={`/obstacle/detail/${obstacle.id}`}>
                 {obstacle.obstacle_name}
               </Link>
             </li>

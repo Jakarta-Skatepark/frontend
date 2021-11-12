@@ -71,3 +71,33 @@ export const LOAD_SKATEPARK = gql`
     }
   }
 `;
+
+export const LOAD_ALL_OBSTACLES = gql`
+  query GetObstacles {
+    obstacles {
+      id
+      obstacle_name
+    }
+  }
+`;
+
+export const LOAD_OBSTACLE = gql`
+  query GetObstacle($obstacleId: ID!) {
+    obstacle(id: $obstacleId) {
+      id
+      obstacle_name
+      imageUrl
+      description
+    }
+  }
+`;
+
+export const USER_ADMIN = gql`
+  query GetAdmin {
+    admin {
+      id
+      username
+      password
+    }
+  }
+`;
