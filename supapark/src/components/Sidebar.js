@@ -41,7 +41,7 @@ export default function Sidebar() {
               Tentang Aplikasi
             </Link>
           </li>
-          <li className='mt-7'>
+          {/* <li className='mt-7'>
             <Link
               to='/input'
               className='text-8 text-primary-2 hover:text-base-1'
@@ -57,6 +57,15 @@ export default function Sidebar() {
               href='#'
             >
               Log Out
+            </Link>
+          </li> */}
+          <li className='mt-7'>
+            <Link
+              to='/'
+              className='text-8 text-primary-2 hover:text-base-1'
+              href='#'
+            >
+              Login
             </Link>
           </li>
         </ul>
