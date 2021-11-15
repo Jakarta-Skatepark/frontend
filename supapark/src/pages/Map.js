@@ -14,8 +14,7 @@ const Map = ({ userLatitude, userLongitude }) => {
     zoom: 10,
   });
 
-  const MAPBOX_TOKEN =
-    'pk.eyJ1IjoiZ21sbHNocm4iLCJhIjoiY2tzcXp6aHUwMGhxbTJ1cDdmNXVsdWwwbCJ9.3wfhluhBZRHaR25XFpPXow';
+  const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
   if (error) return 'ERROR';
   if (loading) return 'Loading...';
@@ -31,7 +30,9 @@ const Map = ({ userLatitude, userLongitude }) => {
           setSelectedPark(skatepark);
         }}
       >
-        <button className='py-2 px-2 bg-primary-3 rounded-7'>!</button>
+        <button className='py-2 px-2 bg-primary-3 rounded-7 text-primary-2'>
+          Park
+        </button>
       </Marker>
     );
   });
@@ -58,7 +59,7 @@ const Map = ({ userLatitude, userLongitude }) => {
         {...viewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         mapStyle='mapbox://styles/gmllshrn/ckvj33j018nc515o2pcsxdbdj'
-        width='80vw'
+        width='100%'
         height='100vh'
         onViewportChange={(viewport) => setViewport(viewport)}
       >
