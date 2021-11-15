@@ -6,22 +6,26 @@
   font-family: 'Plus Jakarta Sans';
   src: url('./fonts/static/PlusJakartaSans-Regular.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('./fonts/static/PlusJakartaSans-Bold.ttf');
   font-weight: bold;
   font-feature-settings: 'ss03' on, 'ss01' on, 'ss02' on;
 }
+
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('./fonts/static/PlusJakartaSans-Medium.ttf');
   font-weight: medium;
 }
+
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('./fonts/static/PlusJakartaSans-Light.ttf');
   font-weight: lighter;
 }
+
 /* ./src/index.css */
 @tailwind base;
 @tailwind components;
@@ -75,7 +79,6 @@ h2 span {
 }
 
 /* Styles */
-
 input {
   padding: 12px 24px;
   border: 1px solid #2c2c2c;
@@ -102,22 +105,34 @@ input:focus {
   top: 0;
   left: 0;
   position: sticky;
-  width: 20%;
+  width: 300px;
 }
 
 .content {
-  width: 80%;
-  align-items: center;
+  width: 1140px;
 }
 
 .image-container {
   height: 500px;
   width: 100%;
-  background-color: #735372;
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.hero {
+  width: 100%;
+}
+
+/* CONTAINER */
+.home-container {
+  padding: 0 100px;
+}
+
+.map-container {
+  height: 500px;
+  width: 100%;
 }

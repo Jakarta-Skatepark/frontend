@@ -1,13 +1,11 @@
 import React from 'react';
-
 import { useQuery } from '@apollo/client';
 import { LOAD_SKATEPARK } from '../GraphQL/Queries';
-
 import { useParams } from 'react-router-dom';
-
 import { Link } from 'react-router-dom';
+import MapBox from '../components/MapBox';
 
-export default function DetailPage() {
+export default function DetailPage({ userLatitude, userLongitude }) {
   const { id } = useParams();
 
   const { loading, error, data } = useQuery(LOAD_SKATEPARK, {
@@ -20,7 +18,7 @@ export default function DetailPage() {
 
   return (
     <div className='mt-20'>
-      <Link to='/' className='text-primary-3'>
+      <Link to='/' className='text-primary-3 text-8'>
         Kembali
       </Link>
       <h1 className='mt-16'>{data.skatepark.park_name}</h1>
@@ -54,6 +52,9 @@ export default function DetailPage() {
       <p className='text-11'>
         Longitude: {data.skatepark.park_geometry.longitude}
       </p>
+      <div className='map-container mt-15 mb-15'>
+        <MapBox userLatitude={userLatitude} userLongitude={userLongitude} />
+      </div>
       <p className='text-11'>{data.skatepark.park_address}</p>
     </div>
   );

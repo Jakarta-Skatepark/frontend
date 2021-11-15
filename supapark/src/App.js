@@ -12,6 +12,7 @@ import InputData from './pages/InputData';
 import About from './pages/About';
 import DetailPage from './pages/DetailPage';
 import ObstacleDetail from './pages/ObstacleDetail';
+import Login from './pages/Login';
 
 const App = () => {
   const [userLatitude, setUserLatitude] = useState(0);
@@ -32,35 +33,62 @@ const App = () => {
   return (
     <Router>
       <div className='flex'>
-        <Sidebar />
+        <div className='sidebar'>
+          <Sidebar />
+        </div>
+
         <Switch>
-          <Route exact path='/'>
-            <div className='flex flex-col content pb-20'>
-              <Home userLatitude={userLatitude} userLongitude={userLongitude} />
-            </div>
-          </Route>
-          <Route exact path='/detail/:id'>
-            <div className='content pb-20 px-15'>
-              <DetailPage />
-            </div>
-          </Route>
-          <Route path='/maps' className='content pb-20 px-15'>
-            <Map userLatitude={userLatitude} userLongitude={userLongitude} />
-          </Route>
-          <Route path='/obstacles' className='content pb-20 '>
-            <Obstacle />
-          </Route>
-          <Route exact path='/obstacle/detail/:id'>
-            <div className='content pb-20 px-15'>
-              <ObstacleDetail />
-            </div>
-          </Route>
-          <Route path='/about' className='content pb-20 px-15'>
-            <About />
-          </Route>
-          <Route path='/input' className='content pb-20 px-15'>
-            <InputData />
-          </Route>
+          <div className='content'>
+            <Route exact path='/'>
+              <div className='home-container pb-20'>
+                <Home
+                  userLatitude={userLatitude}
+                  userLongitude={userLongitude}
+                />
+              </div>
+            </Route>
+
+            <Route exact path='/detail/:id'>
+              <div className=' pb-20 px-15'>
+                <DetailPage
+                  userLatitude={userLatitude}
+                  userLongitude={userLongitude}
+                />
+              </div>
+            </Route>
+
+            <Route path='/maps'>
+              <Map userLatitude={userLatitude} userLongitude={userLongitude} />
+            </Route>
+
+            <Route path='/obstacles'>
+              <div className=' pb-20'>
+                <Obstacle />
+              </div>
+            </Route>
+
+            <Route exact path='/obstacle/detail/:id'>
+              <div className=' pb-20 px-15'>
+                <ObstacleDetail />
+              </div>
+            </Route>
+
+            <Route exact path='/about'>
+              <div className=''>
+                <About />
+              </div>
+            </Route>
+
+            <Route exact path='/login'>
+              <Login />
+            </Route>
+
+            <Route path='/input'>
+              <div className=''>
+                <InputData />
+              </div>
+            </Route>
+          </div>
         </Switch>
       </div>
     </Router>

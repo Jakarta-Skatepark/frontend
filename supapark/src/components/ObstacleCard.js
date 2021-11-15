@@ -6,7 +6,7 @@ const ObstacleCard = ({ name, index }) => {
     <div className=''>
       <Link
         to={`/obstacle/detail/${index}`}
-        className='flex justify-center card'
+        className='flex justify-center '
         style={{
           width: '315px',
           height: '315px',
@@ -14,6 +14,7 @@ const ObstacleCard = ({ name, index }) => {
           backgroundColor: '#F0EDE6',
           fontSize: '18px',
           fontWeight: 'bold',
+          borderRadius: '10px',
         }}
       >
         {name}

@@ -10,7 +10,7 @@ export default function Home({ userLatitude, userLongitude }) {
 
   return (
     <div>
-      <div>
+      <div className='hero'>
         <h1 className='mt-20 mb-15'>Temukan Lokasi Skatepark didekatmu.</h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <input
