@@ -54,7 +54,7 @@ const Map = ({ userLatitude, userLongitude }) => {
   });
 
   return (
-    <div>
+    <div id='map'>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}

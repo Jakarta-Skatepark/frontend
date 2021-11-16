@@ -80,11 +80,13 @@ const App = () => {
             </Route>
 
             <Route exact path='/login'>
-              <Login />
+              <div className='pb-20 mt-15'>
+                <Login />
+              </div>
             </Route>
 
             <Route path='/input'>
-              <div className=''>
+              <div className='pb-20 mt-15'>
                 <InputData />
               </div>
             </Route>

@@ -14,7 +14,6 @@ export default function DetailPage({ userLatitude, userLongitude }) {
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>{error.message}</h1>;
-  console.log(data);
 
   return (
     <div className='mt-20'>
@@ -53,7 +52,13 @@ export default function DetailPage({ userLatitude, userLongitude }) {
         Longitude: {data.skatepark.park_geometry.longitude}
       </p>
       <div className='map-container mt-15 mb-15'>
-        <MapBox userLatitude={userLatitude} userLongitude={userLongitude} />
+        <MapBox
+          userLatitude={userLatitude}
+          userLongitude={userLongitude}
+          parkLatitude={data.skatepark.park_geometry.latitude}
+          parkLongitude={data.skatepark.park_geometry.longitude}
+          parkName={data.skatepark.park_name}
+        />
       </div>
       <p className='text-11'>{data.skatepark.park_address}</p>
     </div>
