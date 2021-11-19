@@ -59,7 +59,7 @@ const Map = ({ userLatitude, userLongitude }) => {
         {...viewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         mapStyle='mapbox://styles/gmllshrn/ckvj33j018nc515o2pcsxdbdj'
-        width='100%'
+        width='1140px'
         height='100vh'
         onViewportChange={(viewport) => setViewport(viewport)}
       >
