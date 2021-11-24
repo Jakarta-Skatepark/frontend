@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from './components/Sidebar';
 
 // React Router Dom
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -13,6 +12,7 @@ import About from './pages/About';
 import DetailPage from './pages/DetailPage';
 import ObstacleDetail from './pages/ObstacleDetail';
 import Login from './pages/Login';
+import Navbar from './components/Navbar';
 
 const App = () => {
   const [userLatitude, setUserLatitude] = useState(0);
@@ -32,64 +32,66 @@ const App = () => {
   console.log(errors);
   return (
     <Router>
-      <div className='flex'>
-        <div className='sidebar'>
-          <Sidebar />
-        </div>
+      <div className=''>
+        <Navbar />
 
         <Switch>
-          <div className='content'>
+          <div className=''>
             <Route exact path='/'>
-              <div className='home-container pb-20'>
+              <div className='pb-20'>
                 <Home
                   userLatitude={userLatitude}
                   userLongitude={userLongitude}
                 />
               </div>
             </Route>
+            <div className='container'>
+              <Route exact path='/detail/:id'>
+                <div className=' pb-20'>
+                  <DetailPage
+                    userLatitude={userLatitude}
+                    userLongitude={userLongitude}
+                  />
+                </div>
+              </Route>
 
-            <Route exact path='/detail/:id'>
-              <div className=' pb-20 px-15'>
-                <DetailPage
+              <Route path='/maps'>
+                <Map
                   userLatitude={userLatitude}
                   userLongitude={userLongitude}
                 />
-              </div>
-            </Route>
+              </Route>
 
-            <Route path='/maps'>
-              <Map userLatitude={userLatitude} userLongitude={userLongitude} />
-            </Route>
+              <Route path='/obstacles'>
+                <div className=' pb-20'>
+                  <Obstacle />
+                </div>
+              </Route>
 
-            <Route path='/obstacles'>
-              <div className=' pb-20'>
-                <Obstacle />
-              </div>
-            </Route>
+              <Route exact path='/obstacle/detail/:id'>
+                <div className=' pb-20'>
+                  <ObstacleDetail />
+                </div>
+              </Route>
 
-            <Route exact path='/obstacle/detail/:id'>
-              <div className=' pb-20 px-15'>
-                <ObstacleDetail />
-              </div>
-            </Route>
+              <Route exact path='/about'>
+                <div className=''>
+                  <About />
+                </div>
+              </Route>
 
-            <Route exact path='/about'>
-              <div className=''>
-                <About />
-              </div>
-            </Route>
+              <Route exact path='/login'>
+                <div className='pb-20 mt-15'>
+                  <Login />
+                </div>
+              </Route>
 
-            <Route exact path='/login'>
-              <div className='pb-20 mt-15'>
-                <Login />
-              </div>
-            </Route>
-
-            <Route path='/input'>
-              <div className='pb-20 mt-15'>
-                <InputData />
-              </div>
-            </Route>
+              <Route path='/input'>
+                <div className='pb-20 mt-15'>
+                  <InputData />
+                </div>
+              </Route>
+            </div>
           </div>
         </Switch>
       </div>

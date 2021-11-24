@@ -10,14 +10,8 @@ export const LOAD_ALL_DATA = gql`
       park_area
       park_type
       park_description
-      park_obstacles {
-        id
-        obstacle_name
-      }
-      park_geometry {
-        latitude
-        longitude
-      }
+      latitude
+      longitude
     }
   }
 `;
@@ -29,10 +23,8 @@ export const LOAD_CARD = gql`
       park_name
       park_image
       park_area
-      park_geometry {
-        latitude
-        longitude
-      }
+      latitude
+      longitude
     }
   }
 `;
@@ -42,10 +34,9 @@ export const MAPS_DATA = gql`
     skateparks {
       id
       park_name
-      park_geometry {
-        latitude
-        longitude
-      }
+      park_image
+      latitude
+      longitude
     }
   }
 `;
@@ -60,14 +51,8 @@ export const LOAD_SKATEPARK = gql`
       park_area
       park_type
       park_description
-      park_obstacles {
-        id
-        obstacle_name
-      }
-      park_geometry {
-        latitude
-        longitude
-      }
+      latitude
+      longitude
     }
   }
 `;
@@ -98,6 +83,71 @@ export const USER_ADMIN = gql`
       id
       username
       password
+    }
+  }
+`;
+
+// MUTATION
+export const CREATE_SKATEPARK = gql`
+  mutation addSkatepark(
+    $createSkateparkId: ID!
+    $parkName: String!
+    $parkImage: String!
+    $parkArea: String!
+    $parkType: String!
+    $parkAddress: String!
+    $parkDescription: String!
+    $latitude: Float!
+    $longitude: Float!
+  ) {
+    createSkatepark(
+      id: $createSkateparkId
+      park_name: $parkName
+      park_image: $parkImage
+      park_area: $parkArea
+      park_type: $parkType
+      park_address: $parkAddress
+      park_description: $parkDescription
+      latitude: $latitude
+      longitude: $longitude
+    ) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_SKATEPARK = gql`
+  mutation editSkatepark(
+    $updateSkateparkId: ID!
+    $parkName: String!
+    $parkImage: String!
+    $parkArea: String!
+    $parkType: String!
+    $parkAddress: String!
+    $parkDescription: String!
+    $latitude: Float!
+    $longitude: Float!
+  ) {
+    updateSkatepark(
+      id: $updateSkateparkId
+      park_name: $parkName
+      park_image: $parkImage
+      park_area: $parkArea
+      park_type: $parkType
+      park_address: $parkAddress
+      park_description: $parkDescription
+      latitude: $latitude
+      longitude: $longitude
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_SKATEPARK = gql`
+  mutation deleteSkatep($deleteSkateparkId: ID!) {
+    deleteSkatepark(id: $deleteSkateparkId) {
+      id
     }
   }
 `;

@@ -16,14 +16,14 @@ export default function DetailPage({ userLatitude, userLongitude }) {
   if (error) return <h1>{error.message}</h1>;
 
   return (
-    <div className='mt-20'>
+    <div className='mt-15'>
       <Link to='/' className='text-primary-3 text-8'>
         Kembali
       </Link>
-      <h1 className='mt-16'>{data.skatepark.park_name}</h1>
-      <h4 className='mt-7 text-11'>
+      <h1 className='mt-15'>{data.skatepark.park_name}</h1>
+      <p className='mt-7 text-11'>
         {data.skatepark.park_type} || {data.skatepark.park_area}
-      </h4>
+      </p>
       <div className='image-container'>
         <img
           className='mt-15'
@@ -31,36 +31,23 @@ export default function DetailPage({ userLatitude, userLongitude }) {
           alt={data.skatepark.park_name}
         />
       </div>
-      <p className='mt-15 mb-20 text-11'>{data.skatepark.park_description}</p>
-      <h1 className='mb-15'>Rintangan</h1>
-      {data.skatepark.park_obstacles.map((obstacle) => {
-        return (
-          <ul key={obstacle.id} className='flex gap-2'>
-            <li key={obstacle.id}>
-              <Link className='text-11' to={`/obstacle/detail/${obstacle.id}`}>
-                {obstacle.obstacle_name}
-              </Link>
-            </li>
-          </ul>
-        );
-      })}
+      <p className='mt-15 mb-15 text-11'>{data.skatepark.park_description}</p>
+
       <h1 className='my-15'>Petunjuk Arah</h1>
-      <p className='text-11'>
-        Latitude: {data.skatepark.park_geometry.latitude}
-      </p>
-      <p className='text-11'>
-        Longitude: {data.skatepark.park_geometry.longitude}
-      </p>
+      <p className='text-11'>User Latitude: {userLatitude}</p>
+      <p className='text-11'>User Longitude: {userLongitude}</p>
+      <p className='text-11'>Skatepark Latitude: {data.skatepark.latitude}</p>
+      <p className='text-11'>Skatepark Longitude: {data.skatepark.longitude}</p>
       <div className='map-container mt-15 mb-15'>
         <MapBox
           userLatitude={userLatitude}
           userLongitude={userLongitude}
-          parkLatitude={data.skatepark.park_geometry.latitude}
-          parkLongitude={data.skatepark.park_geometry.longitude}
+          parkLatitude={data.skatepark.latitude}
+          parkLongitude={data.skatepark.longitude}
           parkName={data.skatepark.park_name}
         />
       </div>
-      <p className='text-11'>{data.skatepark.park_address}</p>
+      <p className='text-11 mt-15'>{data.skatepark.park_address}</p>
     </div>
   );
 }

@@ -19,15 +19,15 @@ export default function ListCard({ userLatitude, userLongitude, inputSearch }) {
         jarak: HaversineFormula(
           userLatitude,
           userLongitude,
-          skatepark.park_geometry.latitude,
-          skatepark.park_geometry.longitude
+          skatepark.latitude,
+          skatepark.longitude
         ),
       };
     })
     .sort((a, b) => a.jarak - b.jarak);
 
   return (
-    <div className='flex flex-col gap-7'>
+    <div className='flex flex-col '>
       {sortedskateparks
         .filter((skatepark) => {
           if (inputSearch === '') {
