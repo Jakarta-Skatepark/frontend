@@ -3,13 +3,13 @@ import React from 'react';
 export default function Login() {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <h1>Silahkan Masuk Untuk Admin</h1>
+      <h1>Login</h1>
       <form action=''>
-        <div className='flex flex-col mt-10 gap-2'>
+        <div className='flex flex-col mt-10 gap-3'>
           <label>Email</label>
           <input className='inputbox' type='text' />
         </div>
-        <div className='flex flex-col mt-10 gap-2'>
+        <div className='flex flex-col mt-10 gap-3'>
           <label>Password</label>
           <input className='inputbox' type='password' />
         </div>

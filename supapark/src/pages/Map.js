@@ -23,8 +23,8 @@ const Map = ({ userLatitude, userLongitude }) => {
     return (
       <Marker
         key={skatepark.id}
-        latitude={skatepark.park_geometry.latitude}
-        longitude={skatepark.park_geometry.longitude}
+        latitude={skatepark.latitude}
+        longitude={skatepark.longitude}
         onClick={(e) => {
           e.preventDefault();
           setSelectedPark(skatepark);
@@ -59,25 +59,31 @@ const Map = ({ userLatitude, userLongitude }) => {
         {...viewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         mapStyle='mapbox://styles/gmllshrn/ckvj33j018nc515o2pcsxdbdj'
-        width='1140px'
-        height='100vh'
+        width='940px'
+        height='90vh'
         onViewportChange={(viewport) => setViewport(viewport)}
       >
         {userMarker}
         {renderMarker}
         {selectedPark ? (
           <Popup
-            latitude={selectedPark.park_geometry.latitude}
-            longitude={selectedPark.park_geometry.longitude}
+            className='text-center'
+            latitude={selectedPark.latitude}
+            longitude={selectedPark.longitude}
             onClose={() => {
               setSelectedPark(null);
             }}
           >
-            <div>
-              <Link to={`/detail/${selectedPark.id}`}>
-                {selectedPark.park_name}
-              </Link>
-            </div>
+            <Link to={`/detail/${selectedPark.id}`}>
+              <img
+                width='253px'
+                height='147px'
+                src={selectedPark.park_image}
+                alt={selectedPark.park_name}
+                className='mb-5'
+              />
+              {selectedPark.park_name}
+            </Link>
           </Popup>
         ) : null}
       </ReactMapGL>
