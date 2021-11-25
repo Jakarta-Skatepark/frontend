@@ -4,16 +4,16 @@ export default function Login() {
   return (
     <div className='flex flex-col justify-center items-center'>
       <h1>Login</h1>
-      <form action=''>
-        <div className='flex flex-col mt-10 gap-3'>
+      <form>
+        <div className='flex flex-col mt-15 gap-3'>
           <label>Email</label>
           <input className='inputbox' type='text' />
         </div>
-        <div className='flex flex-col mt-10 gap-3'>
+        <div className='flex flex-col mt-15 gap-3'>
           <label>Password</label>
           <input className='inputbox' type='password' />
         </div>
-        <button className='btn mt-14'>Submit</button>
+        <button className='btn mt-15'>Submit</button>
       </form>
     </div>
   );
