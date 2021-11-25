@@ -19,9 +19,9 @@ export default function Navbar() {
           <li>
             <Link to='/input'>Input Data</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to='/'>Log Out</Link>
-          </li>
+          </li> */}
           <li>
             <Link to='/login'>Login</Link>
           </li>
