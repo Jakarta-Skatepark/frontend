@@ -31,7 +31,10 @@ export default function DetailPage({ userLatitude, userLongitude }) {
           alt={data.skatepark.park_name}
         />
       </div>
-      <p className='mt-15 mb-15 text-11'>{data.skatepark.park_description}</p>
+      <p
+        className='mt-15 mb-15 text-11'
+        dangerouslySetInnerHTML={{ __html: data.skatepark.park_description }}
+      />
 
       <h1 className='my-15'>Petunjuk Arah</h1>
       <p className='text-11'>User Latitude: {userLatitude}</p>
