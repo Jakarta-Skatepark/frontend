@@ -3,7 +3,7 @@ import ObstacleList from '../components/ObstacleList';
 
 const Obstacle = () => {
   return (
-    <div className='mt-20 px-29 pb-20'>
+    <div className='mt-15 pb-15'>
       <h1 className='mb-15'>Skatepark Obstacles</h1>
       <ObstacleList />
     </div>

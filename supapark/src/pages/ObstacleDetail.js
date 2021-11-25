@@ -15,18 +15,19 @@ export default function ObstacleDetail() {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className='mt-20'>
+    <div className='mt-15'>
       <Link className='text-primary-3 text-8' to='/obstacles'>
         Kembali
       </Link>
-      <h1 className='mt-16 text-center mb-14'>{data.obstacle.obstacle_name}</h1>
+      <h1 className='mt-15 text-center mb-15'>{data.obstacle.obstacle_name}</h1>
       <div className='image-container'>
         <img
+          className='obstacle-image'
           src={data.obstacle.imageUrl}
           alt={'gambar' + data.obstacle.obstacle_name}
         />
       </div>
-      <p className='mt-7 text-11'>{data.obstacle.description}</p>
+      <p className='mt-15 text-11'>{data.obstacle.description}</p>
     </div>
   );
 }

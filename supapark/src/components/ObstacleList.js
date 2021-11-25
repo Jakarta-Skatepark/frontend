@@ -10,7 +10,7 @@ const ObstacleList = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className='list flex flex-wrap gap-4'>
+    <div className='list flex flex-wrap gap-5'>
       {data.obstacles.map((obs) => {
         return (
           <ObstacleCard name={obs.obstacle_name} key={obs.id} index={obs.id} />
