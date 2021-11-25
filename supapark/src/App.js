@@ -36,7 +36,7 @@ const App = () => {
         <Navbar />
 
         <Switch>
-          <div className=''>
+          <div>
             <Route exact path='/'>
               <div className='pb-20'>
                 <Home

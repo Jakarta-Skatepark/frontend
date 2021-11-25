@@ -88,6 +88,15 @@ h2 span {
   color: #735372;
 }
 
+.logo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  font-feature-settings: 'ss01' on, 'ss03' on, 'ss02' on;
+  color: #f0ede6;
+}
+
 /* Styles */
 input {
   padding: 12px 24px;
@@ -192,48 +201,6 @@ label {
   color: #313848;
 }
 
-.map-container {
-  width: 1376px;
-  height: 550px;
-}
-
-.mapWrapper {
-  width: 1376px;
-  height: 550px;
-}
-
-.mapboxgl-ctrl-directions {
-  z-index: 99;
-  background: rgba(0, 0, 0, 0.8);
-  top: 0;
-  right: 0;
-  height: 500px;
-  width: 300px;
-  padding: 20px;
-  color: #fff;
-  overflow-y: scroll;
-}
-
-.mapboxgl-ctrl-directions h1 {
-  display: none;
-}
-
-.mapboxgl-ctrl-directions span {
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-.mapbox-directions-step-maneuver {
-  font-size: 16px;
-  margin-bottom: 6px;
-  cursor: pointer;
-}
-
-.mapbox-directions-step-distance {
-  font-size: 14px;
-  margin-bottom: 16px;
-}
-
 .obstacleCard {
   width: 259px;
   height: 259px;
@@ -279,4 +246,58 @@ textarea:focus {
   font-size: 16px;
   line-height: 20px;
   color: #f0ede6;
+}
+
+/* MAPBOX STYLE */
+
+.map-container {
+  width: 1376px;
+  height: 550px;
+}
+
+.mapWrapper {
+  width: 1376px;
+  height: 550px;
+}
+
+.mapboxgl-ctrl-directions {
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  right: 0;
+  height: 500px;
+  width: 300px;
+  padding: 20px;
+  color: #fff;
+  overflow-y: scroll;
+}
+
+.mapboxgl-ctrl-directions h1 {
+  display: none;
+}
+
+.mapboxgl-ctrl-directions span {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.mapbox-directions-step-maneuver {
+  font-size: 16px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.mapbox-directions-step-distance {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.mapboxgl-popup-content {
+  width: 253px;
+  height: 100%;
+}
+
+.mapboxgl-popup-content img {
+  width: 253px;
+  height: 147px;
 }

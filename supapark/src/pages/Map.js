@@ -30,8 +30,8 @@ const Map = ({ userLatitude, userLongitude }) => {
           setSelectedPark(skatepark);
         }}
       >
-        <button className='py-2 px-2 bg-primary-3 rounded-7 text-primary-2'>
-          Park
+        <button className='py-2 px-2  '>
+          <img src='/marker.svg' alt='Marker' />
         </button>
       </Marker>
     );
@@ -44,7 +44,7 @@ const Map = ({ userLatitude, userLongitude }) => {
         latitude={userLatitude}
         longitude={userLongitude}
       >
-        <button className='py-2 px-2 bg-primary-3 rounded-7 text-4 text-primary-2'>
+        <button className='py-5 px-5 bg-primary-3 rounded-7 text-6 text-primary-2'>
           {!userLatitude && !userLongitude
             ? 'Allow The Location'
             : 'You Are Here'}
