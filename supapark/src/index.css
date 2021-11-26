@@ -218,6 +218,10 @@ label {
   color: #2c2c2c;
 }
 
+.input-file {
+  width: 892px;
+}
+
 textarea {
   width: 892px;
   height: 134px;
