@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import { CREATE_SKATEPARK } from '../GraphQL/Queries';
+import { CREATE_SKATEPARK, LOAD_CARD } from '../GraphQL/Queries';
 import { useMutation } from '@apollo/client';
 
 const InputData = () => {
-  const [aidi, setAidi] = useState(18);
+  const [aidi] = useState('');
   const [nama, setNama] = useState('');
   const [alamat, setAlamat] = useState('');
   const [tipe, setTipe] = useState('');
   const [area, setArea] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
   const [gambar, setGambar] = useState('');
   const [deskripsi, setDeskripsi] = useState('');
+  const [createSkatepark, { error, loading }] = useMutation(CREATE_SKATEPARK);
 
-  const [addSkatepark, { data, loading, error }] = useMutation(
-    CREATE_SKATEPARK,
-    {
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    createSkatepark({
       variables: {
         createSkateparkId: aidi,
         parkName: nama,
@@ -24,20 +25,18 @@ const InputData = () => {
         parkArea: area,
         parkAddress: alamat,
         parkDescription: deskripsi,
-        latitude: latitude,
-        longitude: longitude,
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude),
       },
+      refetchQueries: [{ query: LOAD_CARD }],
+    });
+    if (!error) {
+      alert('input data sukses!');
     }
-  );
-  console.log(aidi);
-  console.log(nama);
-  if (loading) return 'Submitting...';
-  if (error) return `Submission error! ${error.message}`;
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-    setAidi(aidi + 1);
-    addSkatepark(data);
   };
+  console.log(aidi);
+  if (error) return <h1>error + {error.message}</h1>;
+  if (loading) return 'Submitting...';
 
   return (
     <div className='flex flex-col justify-center items-center'>
