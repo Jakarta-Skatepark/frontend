@@ -3,6 +3,12 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { useQuery } from '@apollo/client';
 import { MAPS_DATA } from '../GraphQL/Queries';
 import { Link } from 'react-router-dom';
+import mapboxgl from 'mapbox-gl';
+
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass =
+  require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default; /* eslint import/no-webpack-loader-syntax: off */
 
 const Map = ({ userLatitude, userLongitude }) => {
   const { data, loading, error } = useQuery(MAPS_DATA);
