@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <header className='flex justify-between bg-primary-1 text-primary-2 px-15 items-center'>
-      <Link to='/'>Jakarta Skatepark</Link>
+      <Link to='/' className='logo'>
+        Japark
+      </Link>
       <nav>
         <ul className='flex gap-8'>
           <li>

@@ -3,6 +3,12 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { useQuery } from '@apollo/client';
 import { MAPS_DATA } from '../GraphQL/Queries';
 import { Link } from 'react-router-dom';
+import mapboxgl from 'mapbox-gl';
+
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass =
+  require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default; /* eslint import/no-webpack-loader-syntax: off */
 
 const Map = ({ userLatitude, userLongitude }) => {
   const { data, loading, error } = useQuery(MAPS_DATA);
@@ -30,8 +36,8 @@ const Map = ({ userLatitude, userLongitude }) => {
           setSelectedPark(skatepark);
         }}
       >
-        <button className='py-2 px-2 bg-primary-3 rounded-7 text-primary-2'>
-          Park
+        <button className='py-2 px-2  '>
+          <img src='/marker.svg' alt='Marker' />
         </button>
       </Marker>
     );
@@ -44,7 +50,7 @@ const Map = ({ userLatitude, userLongitude }) => {
         latitude={userLatitude}
         longitude={userLongitude}
       >
-        <button className='py-2 px-2 bg-primary-3 rounded-7 text-4 text-primary-2'>
+        <button className='py-5 px-5 bg-primary-3 rounded-7 text-6 text-primary-2'>
           {!userLatitude && !userLongitude
             ? 'Allow The Location'
             : 'You Are Here'}

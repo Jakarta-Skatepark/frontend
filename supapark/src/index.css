@@ -88,6 +88,15 @@ h2 span {
   color: #735372;
 }
 
+.logo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  font-feature-settings: 'ss01' on, 'ss03' on, 'ss02' on;
+  color: #f0ede6;
+}
+
 /* Styles */
 input {
   padding: 12px 24px;
@@ -180,7 +189,7 @@ input:focus {
   width: 430px;
   height: 40px;
   background: #f0ede6;
-  border: 2px solid #2c2c2c;
+  border: 1px solid #2c2c2c;
   border-radius: 10px;
 }
 
@@ -191,6 +200,60 @@ label {
   line-height: 20px;
   color: #313848;
 }
+
+.obstacleCard {
+  width: 259px;
+  height: 259px;
+  background: #f0ede6;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  font-feature-settings: 'ss01' on;
+  color: #2c2c2c;
+}
+
+.input-file {
+  width: 892px;
+  background: #f0ede6;
+}
+
+textarea {
+  width: 892px;
+  height: 134px;
+  background: #f0ede6;
+  border: 1px solid #2c2c2c;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 12px 24px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.btn-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  width: 120px;
+  height: 52px;
+  background: #735372;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f0ede6;
+}
+
+/* MAPBOX STYLE */
 
 .map-container {
   width: 1376px;
@@ -234,49 +297,12 @@ label {
   margin-bottom: 16px;
 }
 
-.obstacleCard {
-  width: 259px;
-  height: 259px;
-  background: #f0ede6;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 23px;
-  font-feature-settings: 'ss01' on;
-  color: #2c2c2c;
+.mapboxgl-popup-content {
+  width: 253px;
+  height: 100%;
 }
 
-textarea {
-  width: 892px;
-  height: 134px;
-  background: #f0ede6;
-  border: 2px solid #2c2c2c;
-  box-sizing: border-box;
-  border-radius: 10px;
-  padding: 12px 24px;
-}
-
-textarea:focus {
-  outline: none;
-}
-
-.btn-submit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 32px;
-  width: 120px;
-  height: 52px;
-  background: #735372;
-  border-radius: 10px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: #f0ede6;
+.mapboxgl-popup-content img {
+  width: 253px;
+  height: 147px;
 }
