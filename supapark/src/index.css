@@ -253,6 +253,38 @@ textarea:focus {
   color: #f0ede6;
 }
 
+.btn-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  width: 120px;
+  height: 52px;
+  background: #3287d6;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f0ede6;
+}
+
+.btn-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  width: 120px;
+  height: 52px;
+  background: #f04d4d;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f0ede6;
+}
+
 /* MAPBOX STYLE */
 
 .map-container {

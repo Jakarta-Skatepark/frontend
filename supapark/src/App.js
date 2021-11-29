@@ -13,6 +13,7 @@ import DetailPage from './pages/DetailPage';
 import ObstacleDetail from './pages/ObstacleDetail';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
+import EditData from './pages/EditPage';
 
 const App = () => {
   const [userLatitude, setUserLatitude] = useState(0);
@@ -89,6 +90,12 @@ const App = () => {
               <Route path='/input'>
                 <div className='pb-20 mt-15'>
                   <InputData />
+                </div>
+              </Route>
+
+              <Route path='/edit/:id'>
+                <div className='pb-20 mt-15'>
+                  <EditData />
                 </div>
               </Route>
             </div>

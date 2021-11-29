@@ -1,24 +1,37 @@
 import React, { useState } from 'react';
-import { CREATE_SKATEPARK, LOAD_CARD } from '../GraphQL/Queries';
+import {
+  UPDATE_SKATEPARK,
+  LOAD_SKATEPARK,
+  LOAD_CARD,
+} from '../GraphQL/Queries';
 import { useMutation } from '@apollo/client';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { Redirect } from 'react-router-dom';
 
-const InputData = () => {
-  const [aidi] = useState('');
-  const [nama, setNama] = useState('');
-  const [alamat, setAlamat] = useState('');
-  const [tipe, setTipe] = useState('');
-  const [area, setArea] = useState('');
-  const [latitude, setLatitude] = useState(0);
-  const [longitude, setLongitude] = useState(0);
-  const [gambar, setGambar] = useState('');
-  const [deskripsi, setDeskripsi] = useState('');
-  const [createSkatepark, { error, loading }] = useMutation(CREATE_SKATEPARK);
+const EditData = () => {
+  const { id } = useParams();
+  const { data } = useQuery(LOAD_SKATEPARK, {
+    variables: { skateparkId: id },
+  });
+  console.log(data);
+
+  const [nama, setNama] = useState(data.skatepark.park_name);
+  const [alamat, setAlamat] = useState(data.skatepark.park_address);
+  const [tipe, setTipe] = useState(data.skatepark.park_type);
+  const [area, setArea] = useState(data.skatepark.park_area);
+  const [latitude, setLatitude] = useState(data.skatepark.latitude);
+  const [longitude, setLongitude] = useState(data.skatepark.longitude);
+  const [gambar, setGambar] = useState(data.skatepark.park_image);
+  const [deskripsi, setDeskripsi] = useState(data.skatepark.park_description);
+  const [editSkatepark, { error, loading }] = useMutation(UPDATE_SKATEPARK);
+  const direct = '/';
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    createSkatepark({
+    editSkatepark({
       variables: {
-        createSkateparkId: aidi,
+        updateSkateparkId: id,
         parkName: nama,
         parkImage: gambar,
         parkType: tipe,
@@ -30,18 +43,12 @@ const InputData = () => {
       },
       refetchQueries: [{ query: LOAD_CARD }],
     });
-    setNama('');
-    setAlamat('');
-    setTipe('');
-    setArea('');
-    setLatitude(0);
-    setLongitude(0);
-    setGambar('');
-    setDeskripsi('');
     if (!error) {
-      alert('input data sukses!');
+      alert('Edit data sukses!');
     }
+    <Redirect to={direct} />;
   };
+
   if (error) return <h1>error + {error.message}</h1>;
   if (loading) return 'Submitting...';
 
@@ -136,4 +143,4 @@ const InputData = () => {
   );
 };
 
-export default InputData;
+export default EditData;

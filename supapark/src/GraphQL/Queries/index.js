@@ -145,9 +145,10 @@ export const UPDATE_SKATEPARK = gql`
 `;
 
 export const DELETE_SKATEPARK = gql`
-  mutation deleteSkatep($deleteSkateparkId: ID!) {
+  mutation deleteSkatepark($deleteSkateparkId: ID!) {
     deleteSkatepark(id: $deleteSkateparkId) {
       id
     }
   }
 `;
+// deleteSkatep
