@@ -18,6 +18,7 @@ import EditData from './pages/EditPage';
 const App = () => {
   const [userLatitude, setUserLatitude] = useState(0);
   const [userLongitude, setUserLongitude] = useState(0);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [errors, setErrors] = useState('');
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const App = () => {
   return (
     <Router>
       <div className=''>
-        <Navbar />
+        <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
 
         <Switch>
           <div>
@@ -50,6 +51,7 @@ const App = () => {
               <Route exact path='/detail/:id'>
                 <div className=' pb-20'>
                   <DetailPage
+                    loggedIn={loggedIn}
                     userLatitude={userLatitude}
                     userLongitude={userLongitude}
                   />
@@ -83,7 +85,7 @@ const App = () => {
 
               <Route exact path='/login'>
                 <div className='pb-20 mt-15'>
-                  <Login />
+                  <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
                 </div>
               </Route>
 
