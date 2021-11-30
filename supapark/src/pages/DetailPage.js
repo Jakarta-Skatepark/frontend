@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MapBox from '../components/MapBox';
 
-export default function DetailPage({ userLatitude, userLongitude }) {
+export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
   const { id } = useParams();
 
   const { loading, error, data } = useQuery(LOAD_SKATEPARK, {
@@ -33,14 +33,16 @@ export default function DetailPage({ userLatitude, userLongitude }) {
         <Link to='/' className='text-primary-3 text-8'>
           Kembali
         </Link>
-        <div className='flex gap-8'>
-          <Link to={`/edit/${id}`} className='btn-edit text-8'>
-            Edit
-          </Link>
-          <Link to='/' onClick={onDeleteClick} className='btn-delete text-8'>
-            Delete
-          </Link>
-        </div>
+        {loggedIn && (
+          <div className='flex gap-8'>
+            <Link to={`/edit/${id}`} className='btn-edit text-8'>
+              Edit
+            </Link>
+            <Link to='/' onClick={onDeleteClick} className='btn-delete text-8'>
+              Delete
+            </Link>
+          </div>
+        )}
       </div>
       <h1 className='mt-15'>{data.skatepark.park_name}</h1>
       <p className='mt-7 text-11'>
