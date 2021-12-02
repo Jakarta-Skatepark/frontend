@@ -338,3 +338,52 @@ textarea:focus {
   width: 253px;
   height: 147px;
 }
+
+/* MOBILE VERSION */
+@media only screen and (max-width: 600px) {
+  header {
+    display: none !important;
+  }
+  input {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+  .left {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 24px;
+    height: 90vh;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .card {
+    flex-direction: column;
+  }
+  .card img {
+    width: 100% !important;
+    height: 218px !important;
+  }
+  .desktop {
+    display: none;
+  }
+  .jarakMobile {
+    background-color: #735372;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 30px;
+    color: #f0ede6;
+  }
+  .card-name h3 {
+    margin: 10px 0 6px;
+  }
+  .card-name p {
+    margin: 0;
+  }
+}
