@@ -29,7 +29,7 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
 
   return (
     <div className='mt-15' id='detailPage'>
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center mobileActions'>
         <Link to='/' className='text-primary-3 text-8'>
           Kembali
         </Link>
