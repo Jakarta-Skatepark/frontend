@@ -12,17 +12,17 @@ const MobileMenu = () => {
             </Link>
           </li>
           <li>
-            <Link to='/' className='text-4 text-primary-2'>
+            <Link to='/obstacles' className='text-4 text-primary-2'>
               Obstacles
             </Link>
           </li>
           <li>
-            <Link to='/' className='text-4 text-primary-2'>
+            <Link to='/about' className='text-4 text-primary-2'>
               About
             </Link>
           </li>
           <li>
-            <Link to='/' className='text-4 text-primary-2'>
+            <Link to='/input' className='text-4 text-primary-2'>
               Input Data
             </Link>
           </li>

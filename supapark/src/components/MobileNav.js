@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MobileNav = () => {
+const MobileNav = ({ loggedIn, setLoggedIn }) => {
+  const onLogoutClick = (e) => {
+    e.preventDefault();
+    setLoggedIn(false);
+    alert('logout berhasil!');
+  };
   return (
     <div className='mobileHeader'>
       <nav>
@@ -12,9 +17,23 @@ const MobileNav = () => {
             </Link>
           </li>
           <li>
-            <Link to='/login' className='text-7 text-primary-2'>
-              Login
-            </Link>
+            {loggedIn ? (
+              <li>
+                <Link
+                  to='/'
+                  className='text-7 text-primary-2'
+                  onClick={onLogoutClick}
+                >
+                  Log Out
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to='/login' className='text-7 text-primary-2'>
+                  Login
+                </Link>
+              </li>
+            )}
           </li>
         </ul>
       </nav>

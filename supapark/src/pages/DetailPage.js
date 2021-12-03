@@ -28,7 +28,7 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
   };
 
   return (
-    <div className='mt-15'>
+    <div className='mt-15' id='detailPage'>
       <div className='flex justify-between items-center'>
         <Link to='/' className='text-primary-3 text-8'>
           Kembali
@@ -74,7 +74,9 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
           parkName={data.skatepark.park_name}
         />
       </div>
-      <p className='text-11 mt-15'>{data.skatepark.park_address}</p>
+      <p className='text-11 mt-15 paddingMobile'>
+        {data.skatepark.park_address}
+      </p>
     </div>
   );
 }
