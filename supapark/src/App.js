@@ -14,6 +14,8 @@ import ObstacleDetail from './pages/ObstacleDetail';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import EditData from './pages/EditPage';
+import MobileNav from './components/MobileNav';
+import MobileMenu from './components/MobileMenu';
 
 const App = () => {
   const [userLatitude, setUserLatitude] = useState(0);
@@ -36,6 +38,10 @@ const App = () => {
     <Router>
       <div className=''>
         <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <div className='mobile'>
+          <MobileNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          <MobileMenu />
+        </div>
 
         <Switch>
           <div>

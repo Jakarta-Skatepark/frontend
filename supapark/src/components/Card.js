@@ -16,7 +16,7 @@ export default function Card({ name, area, image, jarak, linkId }) {
       </div>
 
       <div className='card-name'>
-        <span className='jarakMobile'>
+        <span className='jarakMobile mobile'>
           {jarak === 'NaN' ? 'Nyalakan Lokasi!' : jarak} KM
         </span>
         <h3>{name}</h3>
