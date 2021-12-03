@@ -20,7 +20,7 @@ export default function Card({ name, area, image, jarak, linkId }) {
           {jarak === 'NaN' ? 'Nyalakan Lokasi!' : jarak} KM
         </span>
         <h3>{name}</h3>
-        <p className='text-6 mb-3 mt-3'>{area}</p>
+        <p className='text-6 mb-3 mt-2'>{area}</p>
         <h2 className='desktop'>
           {jarak === 'NaN' ? 'Nyalakan Lokasi!' : jarak}
           <span className='ml-6'>KM</span>

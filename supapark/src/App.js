@@ -44,69 +44,61 @@ const App = () => {
         </div>
 
         <Switch>
-          <div>
-            <Route exact path='/'>
-              <div className='pb-20'>
-                <Home
+          <Route exact path='/'>
+            <div className='pb-20'>
+              <Home userLatitude={userLatitude} userLongitude={userLongitude} />
+            </div>
+          </Route>
+          <div className='container'>
+            <Route exact path='/detail/:id'>
+              <div className=' pb-20'>
+                <DetailPage
+                  loggedIn={loggedIn}
                   userLatitude={userLatitude}
                   userLongitude={userLongitude}
                 />
               </div>
             </Route>
-            <div className='container'>
-              <Route exact path='/detail/:id'>
-                <div className=' pb-20'>
-                  <DetailPage
-                    loggedIn={loggedIn}
-                    userLatitude={userLatitude}
-                    userLongitude={userLongitude}
-                  />
-                </div>
-              </Route>
 
-              <Route path='/maps'>
-                <Map
-                  userLatitude={userLatitude}
-                  userLongitude={userLongitude}
-                />
-              </Route>
+            <Route path='/maps'>
+              <Map userLatitude={userLatitude} userLongitude={userLongitude} />
+            </Route>
 
-              <Route path='/obstacles'>
-                <div className=' pb-20'>
-                  <Obstacle />
-                </div>
-              </Route>
+            <Route path='/obstacles'>
+              <div className=' pb-20'>
+                <Obstacle />
+              </div>
+            </Route>
 
-              <Route exact path='/obstacle/detail/:id'>
-                <div className=' pb-20'>
-                  <ObstacleDetail />
-                </div>
-              </Route>
+            <Route exact path='/obstacle/detail/:id'>
+              <div className=' pb-20'>
+                <ObstacleDetail />
+              </div>
+            </Route>
 
-              <Route exact path='/about'>
-                <div className=''>
-                  <About />
-                </div>
-              </Route>
+            <Route exact path='/about'>
+              <div className=''>
+                <About />
+              </div>
+            </Route>
 
-              <Route exact path='/login'>
-                <div className='pb-20 mt-15'>
-                  <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-                </div>
-              </Route>
+            <Route exact path='/login'>
+              <div className='pb-20 mt-15'>
+                <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              </div>
+            </Route>
 
-              <Route path='/input'>
-                <div className='pb-20 mt-15'>
-                  <InputData />
-                </div>
-              </Route>
+            <Route path='/input'>
+              <div className='pb-20 mt-15'>
+                <InputData />
+              </div>
+            </Route>
 
-              <Route path='/edit/:id'>
-                <div className='pb-20 mt-15'>
-                  <EditData />
-                </div>
-              </Route>
-            </div>
+            <Route path='/edit/:id'>
+              <div className='pb-20 mt-15'>
+                <EditData />
+              </div>
+            </Route>
           </div>
         </Switch>
       </div>
