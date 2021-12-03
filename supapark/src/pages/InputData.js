@@ -48,8 +48,8 @@ const InputData = () => {
   return (
     <div className='flex flex-col justify-center items-center'>
       <h1>Input Data</h1>
-      <form onSubmit={onFormSubmit}>
-        <div className='flex gap-8 mt-15'>
+      <form onSubmit={onFormSubmit} class='paddingMobile'>
+        <div className='flex gap-8 mt-15 flex-wrap'>
           <div className='flex flex-col gap-3'>
             <label>Nama Skatepark</label>
             <input
@@ -69,7 +69,7 @@ const InputData = () => {
             />
           </div>
         </div>
-        <div className='flex gap-8 mt-15'>
+        <div className='flex gap-8 mt-15 flex-wrap'>
           <div className='flex flex-col gap-3'>
             <label>Type Skatepark</label>
             <input
@@ -89,7 +89,7 @@ const InputData = () => {
             />
           </div>
         </div>
-        <div className='flex gap-8 mt-15'>
+        <div className='flex gap-8 mt-15 flex-wrap'>
           <div className='flex flex-col gap-3'>
             <label>Latitude Skatepark</label>
             <input
