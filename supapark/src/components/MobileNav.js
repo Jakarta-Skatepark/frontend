@@ -16,25 +16,23 @@ const MobileNav = ({ loggedIn, setLoggedIn }) => {
               Japark
             </Link>
           </li>
-          <li>
-            {loggedIn ? (
-              <li>
-                <Link
-                  to='/'
-                  className='text-7 text-primary-2'
-                  onClick={onLogoutClick}
-                >
-                  Log Out
-                </Link>
-              </li>
-            ) : (
-              <li>
-                <Link to='/login' className='text-7 text-primary-2'>
-                  Login
-                </Link>
-              </li>
-            )}
-          </li>
+          {loggedIn ? (
+            <li>
+              <Link
+                to='/'
+                className='text-7 text-primary-2'
+                onClick={onLogoutClick}
+              >
+                Log Out
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to='/login' className='text-7 text-primary-2'>
+                Login
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

@@ -405,14 +405,14 @@ textarea:focus {
     display: none;
   }
   .jarakMobile {
-    background-color: #735372;
-    padding: 5px 10px;
+    padding: 5px 0;
+    max-width: 100%;
     border-radius: 10px;
     font-style: normal;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 24px;
     line-height: 30px;
-    color: #f0ede6;
+    color: #735372;
   }
   .card-name h3 {
     margin: 10px 0 6px;
@@ -426,15 +426,6 @@ textarea:focus {
   .mobile {
     display: block;
   }
-  /* .mobileHeader nav {
-    height: 64px;
-    background-color: #735372;
-    padding: 0 16px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  } */
   .mobileHeader nav ul {
     display: flex;
     justify-content: space-between;
