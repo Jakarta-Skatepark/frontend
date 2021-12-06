@@ -14,7 +14,7 @@ const EditData = () => {
   const { data } = useQuery(LOAD_SKATEPARK, {
     variables: { skateparkId: id },
   });
-  console.log(data);
+  console.log(id);
 
   const [nama, setNama] = useState(data.skatepark.park_name);
   const [alamat, setAlamat] = useState(data.skatepark.park_address);
@@ -53,10 +53,14 @@ const EditData = () => {
   if (loading) return 'Submitting...';
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center container'>
       <h1>Input Data</h1>
-      <form onSubmit={onFormSubmit}>
-        <div className='flex gap-8 mt-15'>
+      <form
+        onSubmit={onFormSubmit}
+        className='paddingMobile'
+        id='mobileEditInput'
+      >
+        <div className='flex gap-8 mt-15 flex-wrap'>
           <div className='flex flex-col gap-3'>
             <label>Nama Skatepark</label>
             <input
@@ -76,7 +80,7 @@ const EditData = () => {
             />
           </div>
         </div>
-        <div className='flex gap-8 mt-15'>
+        <div className='flex gap-8 mt-15 flex-wrap'>
           <div className='flex flex-col gap-3'>
             <label>Type Skatepark</label>
             <input
@@ -96,7 +100,7 @@ const EditData = () => {
             />
           </div>
         </div>
-        <div className='flex gap-8 mt-15'>
+        <div className='flex gap-8 mt-15 flex-wrap'>
           <div className='flex flex-col gap-3'>
             <label>Latitude Skatepark</label>
             <input

@@ -20,7 +20,7 @@ class MapBox extends React.Component {
       container: this.mapWrapper,
       style: 'mapbox://styles/mapbox/streets-v10',
       center: [this.props.userLongitude, this.props.userLatitude],
-      zoom: 12,
+      zoom: 15,
     });
 
     const directions = new MapboxDirections({

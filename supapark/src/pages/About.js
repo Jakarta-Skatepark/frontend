@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className='my-20 mx-15'>
+    <div className='my-20 mx-15 container'>
       <h1 className='text-center mb-15'>Tentang Aplikasi</h1>
       <p>
         Aplikasi ini dibuat untuk menemukan lokasi skatepark terdekat

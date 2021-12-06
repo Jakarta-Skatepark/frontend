@@ -18,7 +18,7 @@ export default function Login({ setLoggedIn }) {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center container'>
       <h1>Login</h1>
       <form onSubmit={onLoginFormSubmit}>
         <div className='flex flex-col mt-15 gap-3'>
