@@ -46,9 +46,9 @@ const InputData = () => {
   if (loading) return 'Submitting...';
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center container'>
       <h1>Input Data</h1>
-      <form onSubmit={onFormSubmit} class='paddingMobile'>
+      <form onSubmit={onFormSubmit} className='paddingMobile'>
         <div className='flex gap-8 mt-15 flex-wrap'>
           <div className='flex flex-col gap-3'>
             <label>Nama Skatepark</label>

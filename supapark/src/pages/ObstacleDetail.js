@@ -15,7 +15,7 @@ export default function ObstacleDetail() {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className='mt-15 paddingMobile' id='obstacleDetail'>
+    <div className='mt-15 paddingMobile container' id='obstacleDetail'>
       <Link className='text-primary-3 text-8' to='/obstacles'>
         Kembali
       </Link>
