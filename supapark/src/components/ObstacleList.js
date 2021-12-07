@@ -7,7 +7,10 @@ import { LOAD_ALL_OBSTACLES } from '../GraphQL/Queries';
 const ObstacleList = () => {
   const { data, loading, error } = useQuery(LOAD_ALL_OBSTACLES);
   if (error) return <h1>Error</h1>;
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <h1 className='flex justify-center items-center loading'>Loading...</h1>
+    );
 
   return (
     <div className='list flex flex-wrap gap-5'>

@@ -2,6 +2,7 @@ import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+import { Link } from 'react-router-dom';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -36,7 +37,7 @@ class MapBox extends React.Component {
       language: 'id',
     });
 
-    map.addControl(directions, 'top-right');
+    map.addControl(directions, 'bottom-right');
     directions.setOrigin([this.props.userLongitude, this.props.userLatitude]);
     directions.setDestination([
       this.props.parkLongitude,
@@ -45,7 +46,18 @@ class MapBox extends React.Component {
   }
 
   render() {
-    return <div ref={(el) => (this.mapWrapper = el)} className='mapWrapper' />;
+    return (
+      <div ref={(el) => (this.mapWrapper = el)} className='mapWrapper'>
+        <div>
+          <Link
+            to='/'
+            className='text-primary-2 bg-primary-3 px-6 py-6 text-8 radius-100 close-directions'
+          >
+            <img src='/close.svg' alt='' />
+          </Link>
+        </div>
+      </div>
+    );
   }
 }
 

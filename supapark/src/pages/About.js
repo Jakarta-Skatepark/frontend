@@ -12,7 +12,7 @@ const About = ({ loggedIn, setLoggedIn }) => {
         <MobileMenu />
       </div>
       <div className='my-20 mx-15 container'>
-        <h1 className='text-center mb-15'>Tentang Aplikasi</h1>
+        <h1 className='text-center mb-15 mt-11'>Tentang Aplikasi</h1>
         <p>
           Aplikasi ini dibuat untuk menemukan lokasi skatepark terdekat
           berdasarkan lokasi pengguna. Metode yang digunakan pada aplikasi ini

@@ -63,7 +63,7 @@ const EditData = ({ loggedIn, setLoggedIn }) => {
         <MobileMenu />
       </div>
       <div className='flex flex-col justify-center items-center container'>
-        <h1>Input Data</h1>
+        <h1 className='mt-11'>Input Data</h1>
         <form
           onSubmit={onFormSubmit}
           className='paddingMobile'
