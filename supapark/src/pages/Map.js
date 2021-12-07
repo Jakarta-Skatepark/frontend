@@ -23,7 +23,10 @@ const Map = ({ userLatitude, userLongitude }) => {
   const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
   if (error) return 'ERROR';
-  if (loading) return 'Loading...';
+  if (loading)
+    return (
+      <h1 className='flex justify-center items-center loading'>Loading...</h1>
+    );
 
   const renderMarker = data.skateparks.map((skatepark) => {
     return (

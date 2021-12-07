@@ -28,7 +28,7 @@ export default function Login({ loggedIn, setLoggedIn }) {
         <MobileMenu />
       </div>
       <div className='flex flex-col justify-center items-center container'>
-        <h1>Login</h1>
+        <h1 className='mt-11'>Login</h1>
         <form onSubmit={onLoginFormSubmit}>
           <div className='flex flex-col mt-15 gap-3'>
             <label>Email</label>

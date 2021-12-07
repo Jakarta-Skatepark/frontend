@@ -10,7 +10,10 @@ const Directions = ({ userLatitude, userLongitude }) => {
     variables: { skateparkId: id },
   });
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <h1 className='flex justify-center items-center loading'>Loading...</h1>
+    );
   if (error) return <h1>{error.message}</h1>;
   return (
     <MapBox

@@ -12,8 +12,8 @@ const Obstacle = ({ loggedIn, setLoggedIn }) => {
         <MobileNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <MobileMenu />
       </div>
-      <div className='mt-15 pb-15 container'>
-        <h1 className='mb-15'>Skatepark Obstacles</h1>
+      <div className=' pb-15 container'>
+        <h1 className='mb-15 mt-11'>Skatepark Obstacles</h1>
         <ObstacleList />
       </div>
     </div>

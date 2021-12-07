@@ -12,14 +12,13 @@ export default function ObstacleDetail() {
   });
 
   if (error) return <h1>Error</h1>;
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <h1 className='flex justify-center items-center loading'>Loading...</h1>
+    );
 
   return (
-    <div className='mt-15 paddingMobile container' id='obstacleDetail'>
-      <Link className='text-primary-3 text-8' to='/obstacles'>
-        Kembali
-      </Link>
-      <h1 className='mt-15 text-center mb-15'>{data.obstacle.obstacle_name}</h1>
+    <div className=' paddingMobile' id='obstacleDetail'>
       <div className='image-container'>
         <img
           className='obstacle-image'
@@ -27,7 +26,21 @@ export default function ObstacleDetail() {
           alt={'gambar' + data.obstacle.obstacle_name}
         />
       </div>
-      <p className='mt-15 text-11'>{data.obstacle.description}</p>
+      <div className='imageMenu'>
+        <div className='flex justify-between items-center'>
+          <Link
+            to='/obstacles'
+            className='text-primary-3 bg-primary-2 px-6 py-6 text-8 radius-100'
+          >
+            <img src='/back.svg' alt='backbutton' />
+          </Link>
+        </div>
+      </div>
+      <div className='container'>
+        <h1 className='mt-11'>{data.obstacle.obstacle_name}</h1>
+        <hr />
+        <p className=' text-7'>{data.obstacle.description}</p>
+      </div>
     </div>
   );
 }
