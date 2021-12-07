@@ -16,7 +16,7 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
     variables: { skateparkId: id },
   });
   const [deleteSkatepark] = useMutation(DELETE_SKATEPARK);
-  console.log(data);
+
   if (loading)
     return (
       <h1 className='flex justify-center items-center loading'>Loading...</h1>
@@ -84,15 +84,19 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
 
         <div className='obstacle-list mt-11'>
           <ul>
-            {data.skatepark.park_obstacle.map((obs, i) => {
-              return (
-                <li key={i}>
-                  <Link className='text-7 font-medium' to={obs.link}>
-                    {obs.obstacle_name}
-                  </Link>
-                </li>
-              );
-            })}
+            {data.skatepark.park_obstacle === null ? (
+              <p>Data Belum Lengkap</p>
+            ) : (
+              data.skatepark.park_obstacle.map((obs, i) => {
+                return (
+                  <li key={i}>
+                    <Link className='text-7 font-medium' to={obs.link}>
+                      {obs.obstacle_name}
+                    </Link>
+                  </li>
+                );
+              })
+            )}
           </ul>
         </div>
 
@@ -101,7 +105,12 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
         <h5>Komunitas</h5>
         <div className='community-l mt-11 flex gap-2 items-center'>
           <img src='/instagram.svg' alt='instagram' />
-          <Link className='text-7' to={data.skatepark.instagram}>
+          <Link
+            className='text-7'
+            to={
+              data.skatepark.instagram === null ? '/' : data.skatepark.instagram
+            }
+          >
             {data.skatepark.park_name}
           </Link>
         </div>
