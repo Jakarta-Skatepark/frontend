@@ -12,10 +12,7 @@ import About from './pages/About';
 import DetailPage from './pages/DetailPage';
 import ObstacleDetail from './pages/ObstacleDetail';
 import Login from './pages/Login';
-import Navbar from './components/Navbar';
 import EditData from './pages/EditPage';
-import MobileNav from './components/MobileNav';
-import MobileMenu from './components/MobileMenu';
 import Directions from './pages/Directions';
 
 const App = () => {
@@ -38,16 +35,15 @@ const App = () => {
   return (
     <Router>
       <div className=''>
-        <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-        <div className='mobile'>
-          <MobileNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-          <MobileMenu />
-        </div>
-
         <Switch>
           <Route exact path='/'>
             <div className='pb-20'>
-              <Home userLatitude={userLatitude} userLongitude={userLongitude} />
+              <Home
+                userLatitude={userLatitude}
+                userLongitude={userLongitude}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+              />
             </div>
           </Route>
 
@@ -74,7 +70,7 @@ const App = () => {
 
           <Route path='/obstacles'>
             <div className=' pb-20'>
-              <Obstacle />
+              <Obstacle loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             </div>
           </Route>
 
@@ -86,25 +82,25 @@ const App = () => {
 
           <Route exact path='/about'>
             <div className=''>
-              <About />
+              <About loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             </div>
           </Route>
 
           <Route exact path='/login'>
-            <div className='pb-20 mt-15'>
+            <div className='pb-20'>
               <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             </div>
           </Route>
 
           <Route path='/input'>
-            <div className='pb-20 mt-15'>
-              <InputData />
+            <div className='pb-20'>
+              <InputData loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             </div>
           </Route>
 
           <Route path='/edit/:id'>
-            <div className='pb-20 mt-15'>
-              <EditData />
+            <div className='pb-20'>
+              <EditData loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             </div>
           </Route>
         </Switch>

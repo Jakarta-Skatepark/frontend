@@ -16,8 +16,11 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
     variables: { skateparkId: id },
   });
   const [deleteSkatepark] = useMutation(DELETE_SKATEPARK);
-
-  if (loading) return <h1>Loading...</h1>;
+  console.log(data);
+  if (loading)
+    return (
+      <h1 className='flex justify-center items-center loading'>Loading...</h1>
+    );
   if (error) return <h1>{error.message}</h1>;
 
   const onDeleteClick = () => {
@@ -28,70 +31,104 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
   };
 
   return (
-    <div className='mt-15 container' id='detailPage'>
-      <div className='flex justify-between items-center mobileActions'>
-        <Link to='/' className='text-primary-3 text-8'>
-          Kembali
-        </Link>
-        {loggedIn && (
-          <div className='flex gap-8'>
-            <Link to={`/edit/${id}`} className='btn-edit text-8'>
-              Edit
-            </Link>
-            <Link to='/' onClick={onDeleteClick} className='btn-delete text-8'>
-              Delete
-            </Link>
-          </div>
-        )}
-      </div>
-
-      <h1 className='mt-15'>{data.skatepark.park_name}</h1>
-
-      <p className='mt-7 text-11'>
-        {data.skatepark.park_type} || {data.skatepark.park_area}
-      </p>
-
+    <div className='' id='detailPage'>
       <div className='image-container'>
         <img
-          className='mt-15'
+          className='park-img'
           src={data.skatepark.park_image}
           alt={data.skatepark.park_name}
         />
+        <div className='imageMenu'>
+          <div className='flex justify-between items-center'>
+            <Link
+              to='/'
+              className='text-primary-3 bg-primary-2 px-6 py-6 text-8 radius-100'
+            >
+              <img src='/back.svg' alt='backbutton' />
+            </Link>
+          </div>
+        </div>
+        <div className='imageSeletion'>
+          {loggedIn && (
+            <div className='flex gap-6 imageSelection'>
+              <Link to={`/edit/${id}`} className='btn-edit text-8'>
+                <img src='/edit.svg' alt='editbutton' />
+              </Link>
+              <Link
+                to='/'
+                onClick={onDeleteClick}
+                className='btn-delete text-8'
+              >
+                <img src='/delete.svg' alt='deletebutton' />
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
 
-      <p
-        className='mt-15 mb-15 text-11'
-        dangerouslySetInnerHTML={{ __html: data.skatepark.park_description }}
-      />
+      <div className='container'>
+        <h1 className='mt-11'>{data.skatepark.park_name}</h1>
+        <p className='mt-3 text-7'>
+          {data.skatepark.park_type} || {data.skatepark.park_area}
+        </p>
+        <hr />
 
-      <h1 className='my-15'>Petunjuk Arah</h1>
-
-      <p className='text-11'>User Latitude: {userLatitude}</p>
-
-      <p className='text-11'>User Longitude: {userLongitude}</p>
-
-      <p className='text-11'>Skatepark Latitude: {data.skatepark.latitude}</p>
-
-      <p className='text-11'>Skatepark Longitude: {data.skatepark.longitude}</p>
-
-      <div className='directions-box'>
-        <Link className='directions-button' to={`/detail/directions/${id}`}>
-          Directions
-        </Link>
-      </div>
-      {/* <div className='map-container mt-15 mb-15'>
-        <MapBox
-          userLatitude={userLatitude}
-          userLongitude={userLongitude}
-          parkLatitude={data.skatepark.latitude}
-          parkLongitude={data.skatepark.longitude}
-          parkName={data.skatepark.park_name}
+        <p
+          className='text-7'
+          dangerouslySetInnerHTML={{ __html: data.skatepark.park_description }}
         />
-      </div> */}
 
-      <p className='text-11 mt-15 paddingMobile'>
-        {data.skatepark.park_address}
-      </p>
+        <hr />
+
+        <h5>Rintangan yang ada pada {data.skatepark.park_name}</h5>
+
+        <div className='obstacle-list mt-11'>
+          <ul>
+            {data.skatepark.park_obstacle.map((obs, i) => {
+              return (
+                <li key={i}>
+                  <Link className='text-7 font-medium' to={obs.link}>
+                    {obs.obstacle_name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <hr />
+
+        <h5>Komunitas</h5>
+        <div className='community-l mt-11 flex gap-2 items-center'>
+          <img src='/instagram.svg' alt='instagram' />
+          <Link className='text-7' to={data.skatepark.instagram}>
+            {data.skatepark.park_name}
+          </Link>
+        </div>
+
+        <hr />
+        <h5 className=''>Petunjuk Arah</h5>
+
+        <p className='text-7 mt-11'>User Latitude: {userLatitude}</p>
+
+        <p className='text-7'>User Longitude: {userLongitude}</p>
+
+        <p className='text-7'>Skatepark Latitude: {data.skatepark.latitude}</p>
+
+        <p className='text-7'>
+          Skatepark Longitude: {data.skatepark.longitude}
+        </p>
+
+        <div className='directions-box'>
+          <Link className='directions-button' to={`/detail/directions/${id}`}>
+            Go!
+          </Link>
+        </div>
+
+        <p className='text-7 mt-11 paddingMobile'>
+          {data.skatepark.park_address}
+        </p>
+      </div>
     </div>
   );
 }
