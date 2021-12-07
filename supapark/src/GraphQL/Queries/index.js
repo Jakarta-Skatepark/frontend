@@ -51,6 +51,11 @@ export const LOAD_SKATEPARK = gql`
       park_area
       park_type
       park_description
+      park_obstacle {
+        obstacle_name
+        link
+      }
+      instagram
       latitude
       longitude
     }

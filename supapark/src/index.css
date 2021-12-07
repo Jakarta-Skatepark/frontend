@@ -46,8 +46,8 @@ h1 {
   font-family: Plus Jakarta Sans;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 26px;
+  line-height: 32px;
   font-feature-settings: 'ss03' on, 'ss01' on, 'ss02' on;
   color: #2c2c2c;
 }
@@ -79,6 +79,16 @@ h4 {
   color: #2c2c2c;
 }
 
+h5 {
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  font-feature-settings: 'salt' on, 'ss01' on, 'ss02' on, 'ss03' on;
+  color: #2c2c2c;
+}
+
 h2 span {
   font-style: normal;
   font-weight: bold;
@@ -98,6 +108,11 @@ h2 span {
 }
 
 /* Styles */
+hr {
+  border-top: 0.2px solid #2c2c2c;
+  opacity: 0.5;
+  margin: 24px 0;
+}
 input {
   padding: 12px 24px;
   border: 1px solid #2c2c2c;
@@ -122,6 +137,10 @@ input:focus {
   padding-top: 9px;
 }
 
+.radius-100 {
+  border-radius: 100px;
+}
+
 .container {
   max-width: 1440px;
   padding: 0 32px;
@@ -129,14 +148,33 @@ input:focus {
 }
 
 .image-container {
-  height: 550px;
+  height: 650px;
   width: 100%;
+  position: relative;
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.imageMenu {
+  padding: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.imageSelection {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 32px;
+}
+
+.loading {
+  height: 100vh;
 }
 
 .left {
@@ -254,35 +292,24 @@ textarea:focus {
 }
 
 .btn-edit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 32px;
-  width: 120px;
-  height: 52px;
-  background: #3287d6;
-  border-radius: 10px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: #f0ede6;
+  padding: 15px;
+  width: 54px;
+  height: 54px;
+  background: #548bde;
+  border-radius: 100px;
 }
 
 .btn-delete {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 32px;
-  width: 120px;
-  height: 52px;
-  background: #f04d4d;
-  border-radius: 10px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: #f0ede6;
+  padding: 15px;
+  width: 54px;
+  height: 54px;
+  background: #f56767;
+  border-radius: 100px;
+}
+
+.obstacle-list ul {
+  list-style: decimal;
+  margin-left: 16px;
 }
 
 /* MAPBOX STYLE */
@@ -344,10 +371,9 @@ textarea:focus {
 }
 
 .directions-box {
-  height: 500px;
+  height: 550px;
   width: 100%;
   background-color: #2c2c2c;
-  opacity: 0.5;
   margin-top: 32px;
   display: flex;
   align-items: center;
@@ -356,9 +382,12 @@ textarea:focus {
 
 .directions-button {
   color: #f0ede6;
-  background-color: #735372;
-  padding: 5px 25px;
-  border-radius: 50px;
+  padding: 15px 10px;
+  width: 50px;
+  height: 50px;
+  background: #735372;
+  border-radius: 100px;
+  z-index: 222;
 }
 
 /* MOBILE VERSION */
@@ -476,13 +505,13 @@ textarea:focus {
     margin: 16px 0 !important;
   }
   .image-container {
-    height: 218px;
+    height: 250px;
     width: 100%;
   }
 
-  .image-container img {
+  .image-container .park-img {
     width: 100%;
-    height: 218px;
+    height: 250px;
     object-fit: cover;
   }
 
@@ -552,5 +581,21 @@ textarea:focus {
     width: 100px;
     line-height: 100%;
     color: #f0ede6;
+  }
+  .imageMenu {
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .imageSelection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 16px;
+  }
+  .obstacle-list ul {
+    list-style: decimal;
+    margin-left: 16px;
   }
 }
