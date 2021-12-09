@@ -32,6 +32,7 @@ const App = () => {
   }, []);
 
   console.log(errors);
+
   return (
     <Router>
       <div className=''>
