@@ -25,17 +25,35 @@ const HaversineFormula = (
   const lon1r = lon1 * radian;
   const lon2r = lon2 * radian;
 
-  // Mencari nilai x
-  const x = (lon2r - lon1r) * Math.cos((lat1r + lat2r) / 2);
+  // Mencari Nilai A
+  const A = Math.sqrt(
+    Math.sin((lat2r - lat1r) / 2) * Math.sin((lat2r - lat1r) / 2) +
+      Math.cos(lat1r) *
+        Math.cos(lat2r) *
+        Math.sin((lon2r - lon1r) / 2) *
+        Math.sin((lon2r - lon1r) / 2)
+  );
 
-  // Mencari nilai y
-  const y = lat2r - lat1r;
+  // Mencari Nilai B
+  const B = 2 * Math.asin(A);
 
-  // Mencari nilai d
-  const d = Math.sqrt(x * y + y * y) * r;
+  // Mencari Nilai d dimana menggunakan metode haversine secara lengkap
+  const d = r * B;
 
-  // Mengembalikan hasil hitungan jarak dari titik koordinat user dan titik koordinat skatepark
+  // cetak atau kembalikan hasil perhitungan haversine formula
   return d.toFixed(1);
 };
 
 export default HaversineFormula;
+
+// Mencari nilai x
+// const x = (lon2r - lon1r) * Math.cos((lat1r + lat2r) / 2);
+
+// Mencari nilai y
+// const y = lat2r - lat1r;
+
+// Mencari nilai d
+// const d = Math.sqrt(x * y + y * y) * r;
+
+// Mengembalikan hasil hitungan jarak dari titik koordinat user dan titik koordinat skatepark
+// return d.toFixed(1);

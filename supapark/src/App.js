@@ -20,7 +20,7 @@ const App = () => {
   const [userLongitude, setUserLongitude] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
   const [errors, setErrors] = useState('');
-
+  // -6.256524395465985, 106.8664913818842
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
