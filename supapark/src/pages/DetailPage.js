@@ -105,14 +105,14 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
         <h5>Komunitas</h5>
         <div className='community-l mt-11 flex gap-2 items-center'>
           <img src='/instagram.svg' alt='instagram' />
-          <Link
+          <a
             className='text-7'
-            to={
+            href={
               data.skatepark.instagram === null ? '/' : data.skatepark.instagram
             }
           >
             {data.skatepark.park_name}
-          </Link>
+          </a>
         </div>
 
         <hr />
