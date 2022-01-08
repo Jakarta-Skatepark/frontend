@@ -24,7 +24,7 @@ export default function Home({
         <MobileNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <MobileMenu />
       </div>
-      <div className='flex'>
+      <div className='flex m-auto'>
         <div className='left pt-11 pb-1'>
           <h4 className=' mb-15'>Temukan Lokasi Skatepark didekatmu.</h4>
           <form onSubmit={(e) => e.preventDefault()}>
