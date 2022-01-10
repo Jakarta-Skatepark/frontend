@@ -11,14 +11,14 @@ const About = ({ loggedIn, setLoggedIn }) => {
         <MobileNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <MobileMenu />
       </div>
-      <div className='my-20 mx-15 container'>
+      <div className='my-20 mx-15 container about-section'>
         <h1 className='text-center mb-15 mt-11'>Tentang Aplikasi</h1>
         <p>
           Aplikasi ini dibuat untuk menemukan lokasi skatepark terdekat
           berdasarkan lokasi pengguna, berikut adalah penjelasan singkat tentang
           aplikasi ini:
         </p>
-        <ul>
+        <ul className='about-list'>
           <li>
             Aplikasi pencarian lokasi skatepark terdekat di DKI Jakarta adalah
             sebuah sistem yang dapat mengukur jarak terdekat antara lokasi
