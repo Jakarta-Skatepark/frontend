@@ -1,12 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MobileNav = ({ loggedIn, setLoggedIn }) => {
-  const onLogoutClick = (e) => {
-    e.preventDefault();
-    setLoggedIn(false);
-    alert('logout berhasil!');
-  };
+const MobileNav = () => {
   return (
     <div className='mobileHeader'>
       <nav>
@@ -16,23 +11,6 @@ const MobileNav = ({ loggedIn, setLoggedIn }) => {
               Japark
             </Link>
           </li>
-          {loggedIn ? (
-            <li>
-              <Link
-                to='/'
-                className='text-7 text-primary-2'
-                onClick={onLogoutClick}
-              >
-                Log Out
-              </Link>
-            </li>
-          ) : (
-            <li>
-              <Link to='/login' className='text-7 text-primary-2'>
-                Login
-              </Link>
-            </li>
-          )}
         </ul>
       </nav>
     </div>
@@ -40,3 +18,32 @@ const MobileNav = ({ loggedIn, setLoggedIn }) => {
 };
 
 export default MobileNav;
+
+// Props
+// { loggedIn, setLoggedIn }
+
+// Logout Handler
+// const onLogoutClick = (e) => {
+//   e.preventDefault();
+//   setLoggedIn(false);
+//   alert('logout berhasil!');
+// };
+
+// Child
+// {loggedIn ? (
+//   <li>
+//     <Link
+//       to='/'
+//       className='text-7 text-primary-2'
+//       onClick={onLogoutClick}
+//     >
+//       Log Out
+//     </Link>
+//   </li>
+// ) : (
+//   <li>
+//     <Link to='/login' className='text-7 text-primary-2'>
+//       Login
+//     </Link>
+//   </li>
+// )}

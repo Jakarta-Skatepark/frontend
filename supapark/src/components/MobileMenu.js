@@ -33,15 +33,6 @@ const MobileMenu = () => {
               About
             </Link>
           </li>
-          <li>
-            <Link
-              to='/input'
-              className='text-4 text-primary-2 flex items-center flex-col gap-1'
-            >
-              <img src='/inputdata.svg' alt='InputDataPage' />
-              Input Data
-            </Link>
-          </li>
         </ul>
       </nav>
     </div>
@@ -49,3 +40,14 @@ const MobileMenu = () => {
 };
 
 export default MobileMenu;
+
+// Input Data Menu
+// {/* <li>
+//             <Link
+//               to='/input'
+//               className='text-4 text-primary-2 flex items-center flex-col gap-1'
+//             >
+//               <img src='/inputdata.svg' alt='InputDataPage' />
+//               Input Data
+//             </Link>
+//           </li> */}

@@ -317,6 +317,20 @@ textarea:focus {
   margin-left: 16px;
 }
 
+/* ABOUT PAGE STYLE */
+
+.about-section {
+  max-width: 720px;
+}
+
+.about-list {
+  list-style-type: decimal;
+  padding: 16px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 /* MAPBOX STYLE */
 
 .map-container {
