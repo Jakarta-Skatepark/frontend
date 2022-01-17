@@ -4,13 +4,16 @@ import {
   LOAD_SKATEPARK,
   DELETE_SKATEPARK,
   LOAD_CARD,
+  LOAD_ALL_DATA,
 } from '../GraphQL/Queries';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // import MapBox from '../components/MapBox';
 
 export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
   const { id } = useParams();
+  const history = useHistory();
 
   const { loading, error, data } = useQuery(LOAD_SKATEPARK, {
     variables: { skateparkId: id },
@@ -25,8 +28,9 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
 
   const onDeleteClick = () => {
     deleteSkatepark({
-      variables: { deleteSkateparkId: id },
-      refetchQueries: [{ query: LOAD_CARD }],
+      variables: { deleteSkateparkId: id.toString() },
+      refetchQueries: [{ query: LOAD_CARD, LOAD_ALL_DATA }],
+      onCompleted: history.push('/'),
     });
   };
 
