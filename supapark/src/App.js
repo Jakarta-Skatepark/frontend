@@ -105,6 +105,12 @@ const App = () => {
               <EditData loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             </div>
           </Route>
+
+          <Route path='*'>
+            <div className='notfound'>
+              <h1>Halaman tidak ditemukan</h1>
+            </div>
+          </Route>
         </Switch>
       </div>
     </Router>

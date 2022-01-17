@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Navbar({ loggedIn, setLoggedIn }) {
+  const history = useHistory();
+
   const onLogoutClick = (e) => {
     e.preventDefault();
     setLoggedIn(false);
+    history.push('/');
     alert('logout berhasil!');
   };
 
