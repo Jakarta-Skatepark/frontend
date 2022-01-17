@@ -16,6 +16,7 @@ const HaversineFormula = (
   const lon2 = skateparkLongitude;
 
   // Rumus radian yaitu pi / 180
+  // 3.14
   const pi = Math.PI;
   const radian = pi / 180;
 
