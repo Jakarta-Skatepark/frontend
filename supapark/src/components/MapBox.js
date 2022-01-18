@@ -3,6 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 import { Link } from 'react-router-dom';
+// import HaversineFormula from './HaversineFormula';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -45,6 +46,13 @@ class MapBox extends React.Component {
     ]);
   }
 
+  // jarak = HaversineFormula(
+  //   this.props.userLatitude,
+  //   this.props.userLongitude,
+  //   this.props.parkLatitude,
+  //   this.props.userLongitude
+  // );
+
   render() {
     return (
       <div ref={(el) => (this.mapWrapper = el)} className='mapWrapper'>
@@ -56,6 +64,7 @@ class MapBox extends React.Component {
             <img src='/close.svg' alt='' />
           </Link>
         </div>
+        {/* <div className='jarak-rute text-7'>{this.jarak} km</div> */}
       </div>
     );
   }

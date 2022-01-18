@@ -7,17 +7,16 @@ import {
 import { useMutation } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { Redirect } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
 import MobileNav from '../components/MobileNav';
 import Navbar from '../components/Navbar';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const EditData = ({ loggedIn, setLoggedIn }) => {
   const { id } = useParams();
   const { data } = useQuery(LOAD_SKATEPARK, {
     variables: { skateparkId: id },
   });
-  console.log(id);
 
   const [nama, setNama] = useState(data.skatepark.park_name);
   const [alamat, setAlamat] = useState(data.skatepark.park_address);
@@ -28,7 +27,7 @@ const EditData = ({ loggedIn, setLoggedIn }) => {
   const [gambar, setGambar] = useState(data.skatepark.park_image);
   const [deskripsi, setDeskripsi] = useState(data.skatepark.park_description);
   const [editSkatepark, { error, loading }] = useMutation(UPDATE_SKATEPARK);
-  const direct = '/';
+  const history = useHistory();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -45,11 +44,11 @@ const EditData = ({ loggedIn, setLoggedIn }) => {
         longitude: parseFloat(longitude),
       },
       refetchQueries: [{ query: LOAD_CARD }],
+      onCompleted: history.push('/'),
     });
     if (!error) {
       alert('Edit data sukses!');
     }
-    <Redirect to={direct} />;
   };
 
   if (error) return <h1>error + {error.message}</h1>;

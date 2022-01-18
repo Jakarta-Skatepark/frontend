@@ -436,6 +436,23 @@ textarea:focus {
   margin: 32px;
 }
 
+.jarak-rute {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px; /* Need a specific value to work */
+  z-index: 1000;
+  background-color: #735372;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #f0ede6;
+  font-weight: bold;
+}
+
 /* ===============*/
 /* TABLET VERSION */
 /* ============== */

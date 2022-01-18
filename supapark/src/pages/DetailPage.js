@@ -34,6 +34,41 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
     });
   };
 
+  const latitudePengguna = userLatitude;
+  const longitudePengguna = userLongitude;
+  const latitudeSkatepark = data.skatepark.latitude;
+  const longitudeSkatepark = data.skatepark.longitude;
+  // Rumus mengubah radian
+  const radian = Math.PI / 180;
+
+  // Mengubah nilai latitude dan longitude menjadi radian
+  const phi2 = latitudeSkatepark * radian; //phi 2 adalah latitude skatepark dalam radian
+  const phi1 = latitudePengguna * radian; // phi 1 adalah latitude pengguna dalam radian
+  const lambda1 = longitudePengguna * radian; // lambda 1 adalah longitude pengguna dalam radian
+  const lambda2 = longitudeSkatepark * radian; // lambda 2 adalah longitude skatepark dalam radian
+
+  // Menentukan sin phi
+  const sinPhi = Math.sin((phi2 - phi1) / 2) * Math.sin((phi2 - phi1) / 2);
+
+  // menentukan sin lambda
+  const sinLambda =
+    Math.sin((lambda2 - lambda1) / 2) * Math.sin((lambda2 - lambda1) / 2);
+
+  // Menentukan cos phi 1
+  const cosPhi1 = Math.cos(phi1);
+
+  // Menentukan cos phi 2
+  const cosPhi2 = Math.cos(phi2);
+
+  // Menentukan nilai A
+  const A = Math.sqrt(sinPhi + cosPhi1 * cosPhi2 * sinLambda);
+
+  // Menentukan Nilai B
+  const B = 2 * Math.asin(A);
+
+  // Menentukan nilai d
+  const d = 6317 * B;
+
   return (
     <div className='' id='detailPage'>
       <div className='image-container'>
@@ -120,17 +155,70 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
         </div>
 
         <hr />
-        <h5 className=''>Petunjuk Arah</h5>
+        <h5>Hasil Perhitungan Metode Haversine Formula</h5>
+        <p className='text-7 mt-11'>Latitude Pengguna: {userLatitude}</p>
 
-        <p className='text-7 mt-11'>User Latitude: {userLatitude}</p>
+        <p className='text-7'>Longitude Pengguna: {userLongitude}</p>
 
-        <p className='text-7'>User Longitude: {userLongitude}</p>
-
-        <p className='text-7'>Skatepark Latitude: {data.skatepark.latitude}</p>
+        <p className='text-7'>Latitude Skatepark: {data.skatepark.latitude}</p>
 
         <p className='text-7'>
-          Skatepark Longitude: {data.skatepark.longitude}
+          Longitude Skatepark: {data.skatepark.longitude}
         </p>
+
+        <br />
+        <h5 className='text-7'>
+          Menghitung radian dengan rumus radian = X * (pi / 180)
+        </h5>
+
+        <p className='text-7'>hasil radian latitude penggune = {phi1}</p>
+
+        <p className='text-7'>hasil radian longitude penggune = {lambda2}</p>
+
+        <p className='text-7'>hasil radian latitude penggune = {phi2}</p>
+
+        <p className='text-7'>hasil radian latitude penggune = {lambda2}</p>
+
+        <br />
+        <h5 className='text-7'>Menghitung rumus sin(phi2 - phi1 / 2) ^ 2</h5>
+
+        <p className='text-7'>hasil perhitungan sin phi = {sinPhi}</p>
+
+        <br />
+        <h5 className='text-7'>
+          Menghitung rumus sin(lambda2 - lambda1 / 2) ^ 2
+        </h5>
+        <p className='text-7'>hasil perhitungan sin lambda = {sinLambda}</p>
+
+        <br />
+        <h5 className='text-7'>Hitung cos(phi 1)</h5>
+        <p className='text-7'>hasil perhitungan cos phi 1 = {cosPhi1}</p>
+
+        <br />
+        <h5 className='text-7'>Hitung cos(phi 2)</h5>
+        <p className='text-7'>hasil perhitungan cos phi 2 = {cosPhi2}</p>
+
+        <br />
+        <h5 className='text-7'>Hasil perhitungan rumus A</h5>
+        <p className='text-7'>hasil perhitungan A = {A}</p>
+
+        <br />
+        <h5 className='text-7'>Hitung B = 2 x asin(A)</h5>
+        <p className='text-7'>hasil perhitungan B = {B}</p>
+
+        <br />
+        <h5 className='text-7'>Hitung d = 6317 x B</h5>
+        <p className='text-7'>hasil perhitungan d = {d}</p>
+
+        <br />
+        <p className='text-7'>
+          Sehingga jarak dari lokasi user menuju lokasi{' '}
+          <span className='font-bold text-7'>{data.skatepark.park_name}</span>{' '}
+          adalah <span className='font-bold text-7'>{d.toFixed(1)} km</span>
+        </p>
+
+        <hr />
+        <h5 className=''>Petunjuk Arah</h5>
 
         <div className='directions-box'>
           <Link className='directions-button' to={`/detail/directions/${id}`}>

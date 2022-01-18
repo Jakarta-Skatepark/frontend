@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import MobileMenu from '../components/MobileMenu';
 import MobileNav from '../components/MobileNav';
+import { useHistory } from 'react-router-dom';
 
 export default function Login({ loggedIn, setLoggedIn }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const onLoginFormSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +16,7 @@ export default function Login({ loggedIn, setLoggedIn }) {
       alert('Login Berhasil!');
       setPassword('');
       setUsername('');
+      history.push('/');
     } else {
       setLoggedIn(false);
       alert('Username & Password Salah');
