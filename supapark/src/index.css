@@ -317,6 +317,17 @@ textarea:focus {
   margin-left: 16px;
 }
 
+/* NOT found page */
+.notfound {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0ede6;
+  opacity: 0.3;
+}
+
 /* ABOUT PAGE STYLE */
 
 .about-section {

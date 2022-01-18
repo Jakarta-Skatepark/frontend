@@ -22,7 +22,7 @@ export default function Home({
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <div className='mobile'>
         <MobileNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-        <MobileMenu />
+        <MobileMenu loggedIn={loggedIn} />
       </div>
       <div className='flex m-auto'>
         <div className='left pt-11 pb-1'>
