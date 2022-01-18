@@ -27,32 +27,38 @@ export default function ListCard({ userLatitude, userLongitude, inputSearch }) {
     .sort((a, b) => a.jarak - b.jarak);
 
   return (
-    <div className='flex flex-col '>
-      {sortedskateparks
-        .filter((skatepark) => {
-          if (inputSearch === '') {
-            return skatepark;
-          } else if (
-            skatepark.park_name
-              .toLowerCase()
-              .includes(inputSearch.toLowerCase())
-          ) {
-            return skatepark;
-          }
-          return '';
-        })
-        .map((skatepark) => {
-          return (
-            <Card
-              key={skatepark.id}
-              name={skatepark.park_name}
-              area={skatepark.park_area}
-              image={skatepark.park_image}
-              jarak={skatepark.jarak}
-              linkId={skatepark.id}
-            />
-          );
-        })}
+    <div>
+      {!userLatitude && !userLongitude ? (
+        <div>Allow The Location</div>
+      ) : (
+        <div className='flex flex-col '>
+          {sortedskateparks
+            .filter((skatepark) => {
+              if (inputSearch === '') {
+                return skatepark;
+              } else if (
+                skatepark.park_name
+                  .toLowerCase()
+                  .includes(inputSearch.toLowerCase())
+              ) {
+                return skatepark;
+              }
+              return '';
+            })
+            .map((skatepark) => {
+              return (
+                <Card
+                  key={skatepark.id}
+                  name={skatepark.park_name}
+                  area={skatepark.park_area}
+                  image={skatepark.park_image}
+                  jarak={skatepark.jarak}
+                  linkId={skatepark.id}
+                />
+              );
+            })}
+        </div>
+      )}
     </div>
   );
 }
