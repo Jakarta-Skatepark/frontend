@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import Navbar from '../components/Navbar';
 import MobileNav from '../components/MobileNav';
 import MobileMenu from '../components/MobileMenu';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const InputData = ({ loggedIn, setLoggedIn }) => {
   const [aidi] = useState('');
@@ -16,6 +17,7 @@ const InputData = ({ loggedIn, setLoggedIn }) => {
   const [gambar, setGambar] = useState('');
   const [deskripsi, setDeskripsi] = useState('');
   const [createSkatepark, { error, loading }] = useMutation(CREATE_SKATEPARK);
+  const history = useHistory();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +34,7 @@ const InputData = ({ loggedIn, setLoggedIn }) => {
         longitude: parseFloat(longitude),
       },
       refetchQueries: [{ query: LOAD_CARD }],
+      onCompleted: history.push('/'),
     });
     setNama('');
     setAlamat('');
