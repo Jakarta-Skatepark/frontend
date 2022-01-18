@@ -17,7 +17,6 @@ const EditData = ({ loggedIn, setLoggedIn }) => {
   const { data } = useQuery(LOAD_SKATEPARK, {
     variables: { skateparkId: id },
   });
-  console.log(id);
 
   const [nama, setNama] = useState(data.skatepark.park_name);
   const [alamat, setAlamat] = useState(data.skatepark.park_address);
