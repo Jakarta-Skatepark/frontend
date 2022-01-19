@@ -171,13 +171,13 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
           Menghitung radian dengan rumus: radian = X * (pi / 180)
         </h5>
 
-        <p className='text-7'>hasil radian latitude penggune = {phi1}</p>
+        <p className='text-7'>hasil radian latitude pengguna = {phi1}</p>
 
-        <p className='text-7'>hasil radian longitude penggune = {lambda2}</p>
+        <p className='text-7'>hasil radian longitude pengguna = {lambda2}</p>
 
-        <p className='text-7'>hasil radian latitude penggune = {phi2}</p>
+        <p className='text-7'>hasil radian latitude skatepark = {phi2}</p>
 
-        <p className='text-7'>hasil radian latitude penggune = {lambda2}</p>
+        <p className='text-7'>hasil radian latitude skatepark = {lambda2}</p>
 
         <br />
         <h5 className='text-7'>Menghitung rumus sin(phi2 - phi1 / 2) ^ 2</h5>
