@@ -168,7 +168,7 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
 
         <br />
         <h5 className='text-7'>
-          Menghitung radian dengan rumus radian = X * (pi / 180)
+          Menghitung radian dengan rumus: radian = X * (pi / 180)
         </h5>
 
         <p className='text-7'>hasil radian latitude penggune = {phi1}</p>
