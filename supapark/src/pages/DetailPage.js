@@ -154,68 +154,84 @@ export default function DetailPage({ loggedIn, userLatitude, userLongitude }) {
           </a>
         </div>
 
-        <hr />
-        <h5>Hasil Perhitungan Metode Haversine Formula</h5>
-        <p className='text-7 mt-11'>Latitude Pengguna: {userLatitude}</p>
+        {loggedIn ? (
+          <div>
+            <hr />
+            <h5>Hasil Perhitungan Metode Haversine Formula</h5>
+            <p className='text-7 mt-11'>Latitude Pengguna: {userLatitude}</p>
 
-        <p className='text-7'>Longitude Pengguna: {userLongitude}</p>
+            <p className='text-7'>Longitude Pengguna: {userLongitude}</p>
 
-        <p className='text-7'>Latitude Skatepark: {data.skatepark.latitude}</p>
+            <p className='text-7'>
+              Latitude Skatepark: {data.skatepark.latitude}
+            </p>
 
-        <p className='text-7'>
-          Longitude Skatepark: {data.skatepark.longitude}
-        </p>
+            <p className='text-7'>
+              Longitude Skatepark: {data.skatepark.longitude}
+            </p>
 
-        <br />
-        <h5 className='text-7'>
-          Menghitung radian dengan rumus: radian = X * (pi / 180)
-        </h5>
+            <br />
+            <h5 className='text-7'>
+              Menghitung radian dengan rumus: radian = X * (pi / 180)
+            </h5>
 
-        <p className='text-7'>hasil radian latitude pengguna = {phi1}</p>
+            <p className='text-7'>hasil radian latitude pengguna = {phi1}</p>
 
-        <p className='text-7'>hasil radian longitude pengguna = {lambda2}</p>
+            <p className='text-7'>
+              hasil radian longitude pengguna = {lambda2}
+            </p>
 
-        <p className='text-7'>hasil radian latitude skatepark = {phi2}</p>
+            <p className='text-7'>hasil radian latitude skatepark = {phi2}</p>
 
-        <p className='text-7'>hasil radian latitude skatepark = {lambda2}</p>
+            <p className='text-7'>
+              hasil radian latitude skatepark = {lambda2}
+            </p>
 
-        <br />
-        <h5 className='text-7'>Menghitung rumus sin(phi2 - phi1 / 2) ^ 2</h5>
+            <br />
+            <h5 className='text-7'>
+              Menghitung rumus sin(phi2 - phi1 / 2) ^ 2
+            </h5>
 
-        <p className='text-7'>hasil perhitungan sin phi = {sinPhi}</p>
+            <p className='text-7'>hasil perhitungan sin phi = {sinPhi}</p>
 
-        <br />
-        <h5 className='text-7'>
-          Menghitung rumus sin(lambda2 - lambda1 / 2) ^ 2
-        </h5>
-        <p className='text-7'>hasil perhitungan sin lambda = {sinLambda}</p>
+            <br />
+            <h5 className='text-7'>
+              Menghitung rumus sin(lambda2 - lambda1 / 2) ^ 2
+            </h5>
+            <p className='text-7'>hasil perhitungan sin lambda = {sinLambda}</p>
 
-        <br />
-        <h5 className='text-7'>Hitung cos(phi 1)</h5>
-        <p className='text-7'>hasil perhitungan cos phi 1 = {cosPhi1}</p>
+            <br />
+            <h5 className='text-7'>Hitung cos(phi 1)</h5>
+            <p className='text-7'>hasil perhitungan cos phi 1 = {cosPhi1}</p>
 
-        <br />
-        <h5 className='text-7'>Hitung cos(phi 2)</h5>
-        <p className='text-7'>hasil perhitungan cos phi 2 = {cosPhi2}</p>
+            <br />
+            <h5 className='text-7'>Hitung cos(phi 2)</h5>
+            <p className='text-7'>hasil perhitungan cos phi 2 = {cosPhi2}</p>
 
-        <br />
-        <h5 className='text-7'>Hasil perhitungan rumus A</h5>
-        <p className='text-7'>hasil perhitungan A = {A}</p>
+            <br />
+            <h5 className='text-7'>Hasil perhitungan rumus A</h5>
+            <p className='text-7'>hasil perhitungan A = {A}</p>
 
-        <br />
-        <h5 className='text-7'>Hitung B = 2 x asin(A)</h5>
-        <p className='text-7'>hasil perhitungan B = {B}</p>
+            <br />
+            <h5 className='text-7'>Hitung B = 2 x asin(A)</h5>
+            <p className='text-7'>hasil perhitungan B = {B}</p>
 
-        <br />
-        <h5 className='text-7'>Hitung d = 6317 x B</h5>
-        <p className='text-7'>hasil perhitungan d = {d}</p>
+            <br />
+            <h5 className='text-7'>Hitung d = 6317 x B</h5>
+            <p className='text-7'>hasil perhitungan d = {d}</p>
 
-        <br />
-        <p className='text-7'>
-          Sehingga jarak dari lokasi user menuju lokasi{' '}
-          <span className='font-bold text-7'>{data.skatepark.park_name}</span>{' '}
-          adalah <span className='font-bold text-7'>{d.toFixed(1)} km</span>
-        </p>
+            <br />
+            <p className='text-7'>
+              Sehingga jarak dari lokasi user menuju lokasi{' '}
+              <span className='font-bold text-7'>
+                {data.skatepark.park_name}
+              </span>{' '}
+              adalah <span className='font-bold text-7'>{d.toFixed(1)} km</span>
+            </p>
+          </div>
+        ) : (
+          ''
+        )}
 
         <hr />
         <h5 className=''>Petunjuk Arah</h5>
